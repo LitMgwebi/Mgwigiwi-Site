@@ -1,6 +1,7 @@
 import Home from "./pages/Home/Home";
+import Portfolio from "./pages/Portfolio/Portfolio";
 import FineArtIndex from "./pages/Portfolio/Fine/FineArtIndex";
-import BackgroundIndex from "./pages/Portfolio/Background/BackgroundIndex";
+import BackgroundIndex from "./pages/Portfolio/Digital/Background/BackgroundIndex";
 import {
   BrowserRouter,
   Routes,
@@ -14,8 +15,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           
-          <Route path="/fine-art" element={<FineArtIndex />} />
-          <Route path="/background" element={<BackgroundIndex />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/portfolio/fine-art" element={<FineArtIndex />} />
+          <Route path="/portfolio/background" element={<BackgroundIndex />} />
         </Routes>
       </BrowserRouter>
     </div>

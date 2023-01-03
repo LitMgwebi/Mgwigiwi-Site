@@ -1,46 +1,41 @@
-import FlipCard from "../Layout/ProgramTemplate/Card/CollapseSiteCard";
-import LinkCard from "../Layout/ProgramTemplate/Card/LinkSiteCard";
-import {useState} from "react"
-import ReactCardFlip from "react-card-flip";
+import LinkCard from "../../components/Templates/LinkCard";
 import ProjectHeader from "../../components/Templates/ProjectHeader";
+import { useState } from "react";
+import FlipCard from "../../components/Templates/FlipCard";
+import ReactCardFlip from "react-card-flip";
+import Digital from "./Digital/Digital";
 
 function Portfolio() {
     const [flip, setFlip] = useState(false);
-    const [page, setPage] = useState("")
-
-    const choosePage = (page) => setPage(page)
     const handleClick = () => setFlip(!flip);
-    return(
+    return (
         <div className="portfolio">
-            <ProjectHeader header="Portfolio" link="/"/>
             <ReactCardFlip isFlipped={flip} flipDirection="vertical">
-                <div className="ContentContainer">
-                    <CollapseSiteCard
-                        handleClick={handleClick}
-                        choosePage={choosePage}
-                        contentHeader="Digital"
-                        imgLink={require("../../media/ForCards/Digital/digital-drawing.png")}
-                        tagLine=""
-                        page="Digital"
-                    />
-                    <CollapseSiteCard 
-                        handleClick={handleClick}
-                        choosePage={choosePage}
-                        contentHeader="Fine"
-                        imgLink={require("../../media/ForCards/Digital/digital-drawing.png")}
-                        tagLine=""
-                        page="Physical"
-                    />
-                    <LinkSiteCard
-                        routeLink="animation"
-                        contentHeader="Animation"
-                        imgLink={require("../../media/ForCards/Digital/digital-drawing.png")}
-                        tagLine=""
-                    />
+                <div>
+                    <ProjectHeader header="Portfolio" link="/" />
+                    <div className="ContentContainer">
+                        <FlipCard
+                            handleFlip={handleClick}
+                            contentHeader="Digital Projects"
+                            imgLink={require("../../media/digital-drawing.png")}
+                            tagLine="This is a Digital"
+                        />
+                        <LinkCard
+                            routeLink="fine-art"
+                            contentHeader="Fine Art"
+                            imgLink={require("../../media/digital-drawing.png")}
+                            tagLine="This is fine art"
+                        />
+                        <LinkCard
+                            routeLink="animation"
+                            contentHeader="Animation"
+                            imgLink={require("../../media/digital-drawing.png")}
+                            tagLine=""
+                        />
+                    </div>
                 </div>
-                <div className="flipContent">
-                    {page === "Digital" ? <Digital handleClick={handleClick}/> : page === "Physical"? <Physical handleClick={handleClick}/> : <div>404</div>}
-                    
+                <div>
+                    <Digital handleFlip={handleClick} />
                 </div>
             </ReactCardFlip>
         </div>

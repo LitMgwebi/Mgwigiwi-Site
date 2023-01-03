@@ -1,29 +1,25 @@
-import {Card, CardContent, CardMedia, CardActions} from "@material-ui/core";
+import { Card, CardContent, CardMedia, CardActionArea} from "@material-ui/core";
 
-function FlipCard({handleClick, contentHeader,imgLink, tagLine}){
-    return(
-        <div className="collapseSiteCard">
-            <Card className="card">
-                <CardMedia
-                    component="img"
-                    alt={contentHeader}
-                    image={imgLink}
-                    className="cardMedia"
-                />
-                <CardContent className='cardContent'>
-                    <h3 className="cardHeader">{contentHeader}</h3>
-                    <p className="cardTagLine">{tagLine}</p>
+const FlipCard = ({ handleFlip, contentHeader, imgLink, tagLine }) => {
+    return (
+        <Card className="card">
+            <CardMedia
+                component="img"
+                alt={contentHeader}
+                image={imgLink}
+                className="cardMedia"
+            />
+            <CardContent className='cardContent'>
+                <h3 className="cardHeader">{contentHeader}</h3>
+                <p className="cardTagLine">{tagLine}</p>
 
-                    <CardActions>
-                        <button className="cardButton" onClick={()=> {
-                            handleClick()}}
-                        >
-                            View
-                        </button>
-                    </CardActions> 
-                </CardContent>   
-            </Card>
-        </div>
+                <CardActionArea>
+                    <button className="cardButton" onClick={ handleFlip }>
+                        Flip
+                    </button>
+                </CardActionArea>
+            </CardContent>
+        </Card>
     );
 }
 

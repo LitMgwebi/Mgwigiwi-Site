@@ -2,6 +2,7 @@ import { GetAll } from "../../../hooks/useGet";
 import FineArtCard from "./components/FineArtCard";
 import AddFineArt from "./components/AddFineArt";
 import { Card } from "@material-ui/core";
+import ProjectHeader from "../../../components/Templates/ProjectHeader";
 
 function FineArtIndex() {
     const { payloads, isPending, error } = GetAll("fineArt");
@@ -11,10 +12,10 @@ function FineArtIndex() {
             <div>
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
-                <h2>Fine Art</h2>
+                <ProjectHeader header="Fine Art" link="/portfolio"/>
             </div>
 
-            <div>
+            <div className="ContentContainer">
                 <Card className="card">
                     <AddFineArt />
                 </Card>

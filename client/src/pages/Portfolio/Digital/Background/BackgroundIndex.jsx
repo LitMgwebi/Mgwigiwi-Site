@@ -1,7 +1,8 @@
-import { GetAll } from "../../../hooks/useGet";
+import { GetAll } from "../../../../hooks/useGet";
 import { Card } from "@material-ui/core";
 import BackgroundCard from "./components/BackgroundCard";
 import AddBackground from "./components/AddBackground";
+import ProjectHeader from "../../../../components/Templates/ProjectHeader";
 
 function BackgroundIndex() {
     const { payloads, isPending, error } = GetAll("background");
@@ -11,10 +12,10 @@ function BackgroundIndex() {
             <div>
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
-                <h2>Background Art</h2>
+                <ProjectHeader header="Background Art" link="/portfolio"/>
             </div>
 
-            <div>
+            <div className="ContentContainer">
                 <Card className="card">
                     <AddBackground />
                 </Card>

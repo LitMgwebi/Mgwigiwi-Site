@@ -11,14 +11,14 @@ function FineArtCard({ payload }) {
     }
     return (
         <ReactCardFlip isFlipped={flip} flipDirection="vertical">
-            <Card className="card">
+            <Card className="artCard">
                 <CardMedia
                     component="img"
                     alt={payload.title}
                     image={payload.photo}
-                    className="cardMedia"
+                    className="artCardMedia"
                 />
-                <CardActionArea className="cardContent">
+                <CardActionArea className="artCardContent">
                     <button onClick={flipCard} className="flipButton">
                         Flip
                     </button>
