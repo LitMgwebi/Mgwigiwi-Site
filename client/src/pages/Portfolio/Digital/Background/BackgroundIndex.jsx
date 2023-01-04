@@ -15,7 +15,7 @@ function BackgroundIndex() {
                 <ProjectHeader header="Background Art" link="/portfolio"/>
             </div>
 
-            <div className="ContentContainer">
+            <div className="contentContainer">
                 <Card className="card">
                     <AddBackground />
                 </Card>

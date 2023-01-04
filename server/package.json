@@ -6,8 +6,8 @@
   "author": "Lithi Mgwebi",
   "description": "Server side for Full-stack Application",
   "scripts": {
-    "start-js": "node dist/server.js",
-    "dev-js": "nodemon dist/server.js"
+    "start": "node dist/server.js",
+    "dev": "nodemon dist/server.js"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.2",

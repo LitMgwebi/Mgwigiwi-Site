@@ -61,6 +61,7 @@ router.get('/:id', async (req, res) =>{
 //#region POST /fine-art/add/
 router.post('/add', upload.single('photo'), async(req, res) => {
     let fineArt = null;
+    
     try{
         const data = await uploadToCloudinary(req.file.path, "fine")
         
