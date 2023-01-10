@@ -3,7 +3,7 @@ const { Schema, model} = require("mongoose");
 const conceptSchema = new Schema({
     title: {
         type: String,
-        required: [true, "Please enter the title of this piece: "]
+        required: [true, "Please enter the title of your piece: "]
     },
     description: {
         type: String
