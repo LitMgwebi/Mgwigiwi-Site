@@ -24,7 +24,6 @@ const GetAll = (dest) => {
         });
     }, [dest]);
 
-    return {payloads, error, isPending}
+    return {payloads, error, isPending, setIsPending, setError}
 }
-
 export {GetAll};

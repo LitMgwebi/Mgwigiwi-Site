@@ -1,11 +1,11 @@
 import { Card, CardContent, CardMedia } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-function ConceptCard({ payload, link }) {
+function ConceptCard({ payload }) {
     return (
         <Card className="card">
             <Link
-                to={link}
+                to={`/portfolio/concept/${payload._id}`}
                 state={{stateId: payload._id}}
             >
                 <CardMedia

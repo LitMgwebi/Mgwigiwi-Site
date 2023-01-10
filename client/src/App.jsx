@@ -3,7 +3,8 @@ import Portfolio from "./pages/Portfolio/Portfolio";
 import FineArtIndex from "./pages/Portfolio/Fine/FineArtIndex";
 import BackgroundIndex from "./pages/Portfolio/Digital/Background/BackgroundIndex";
 import ConceptIndex from "./pages/Portfolio/Digital/Concept/ConceptIndex";
-import AddConcept from "./pages/Portfolio/Digital/Concept/AddConcept";
+import ConceptAdd from "./pages/Portfolio/Digital/Concept/ConceptAdd";
+import ConceptRecord from "./pages/Portfolio/Digital/Concept/ConceptRecord";
 import {
   BrowserRouter,
   Routes,
@@ -22,7 +23,8 @@ function App() {
           <Route path="/portfolio/background" element={<BackgroundIndex />} />
           
           <Route path="/portfolio/concept" element={<ConceptIndex />} />
-          <Route path="/portfolio/concept/add" element={<AddConcept/>}/>
+          <Route path="/portfolio/concept/add" element={<ConceptAdd/>}/>
+          <Route path="/portfolio/concept/:id" element={<ConceptRecord/>} />
         </Routes>
       </BrowserRouter>
     </div>

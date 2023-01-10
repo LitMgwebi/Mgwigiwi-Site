@@ -11,6 +11,7 @@ const log = require("./config/logging");
 const fineArtController = require("./Controllers/fineArtController");
 const userController = require("./Controllers/userController");
 const backgroundController = require("./Controllers/backgroundController");
+const conceptController = require("./Controllers/conceptController");
 //#endregion
 
 //#region Server configuration
@@ -45,4 +46,5 @@ server.get('/', (req, res) => {
 server.use('/background', backgroundController);
 server.use('/fineArt', fineArtController);
 server.use('/auth', userController);
+server.use('/concept', conceptController);
 //#endregion

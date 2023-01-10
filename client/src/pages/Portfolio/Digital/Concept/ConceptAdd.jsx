@@ -1,30 +1,58 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 
-function AddConcept(){
+function AddConcept() {
     const [photos, setPhotos] = useState("");
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [error, setError] = useState(null);
+    const [status, setStatus] = useState(null);
+    const navigate= useNavigate();
 
-    function handleSubmit(e){
+
+    function handleSubmit(e) {
         e.preventDefault();
-        console.log(e.target.files)
-        console.info(`Title: ${title}\n, Description: ${description}\n, Photos: ${photos}`)
+        
         const formData = new FormData();
+
+        formData.append("title", title);
+        formData.append("description", description);
+        for(let i = 0; i < photos.length; i++){
+            formData.append("photos", photos[i]);
+        }
+        
+        axios({
+            method: "POST",
+            url: "http://localhost:1500/concept/add",
+            data: formData,
+            headers: {
+                'accept': 'application/json',
+                'Content-Type': `multipart/form-data`,
+            }
+        }).then((res) => {
+            setError(null);
+            setStatus(res.data.message)
+        }).catch((error) => {
+            console.error(error.response.data.error);
+            setError(error.response.data.error);
+        });
+
+        navigate("/portfolio/concept")
     }
 
-    return(
+    return (
         <form onSubmit={handleSubmit} encType='multipart/form-data'>
             <div className="section">
+                <p>{status}</p>
                 {error && <div className="error">{error}</div>}
                 <h1>Create</h1>
                 <div className="button-group">
                     <button type="submit" className="btn btn-primary">Submit</button>
                     <Link to="/portfolio"><button>Cancel</button></Link>
                 </div>
-                <div className="contentContainer">
+            </div>
+            <div className="contentContainer">
                     <div className="titleInput">
                         <label>Title:</label>
                         <input
@@ -48,14 +76,11 @@ function AddConcept(){
                             type="file"
                             name="photos"
                             accept="image/*"
-                            onChange={(e) => setPhotos(e.target.files)}
+                            onChange={(e) => {setPhotos(e.target.files)}}
                             multiple
                         />
                     </div>
                 </div>
-            </div>
-
-
         </form>
     )
 }

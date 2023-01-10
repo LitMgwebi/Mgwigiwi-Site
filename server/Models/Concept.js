@@ -18,4 +18,8 @@ const conceptSchema = new Schema({
     public_ids: {
         type: Array
     }
-},  { timestamps: true })
+},  { timestamps: true });
+
+const Concept = model('Concept', conceptSchema);
+
+module.exports = Concept;

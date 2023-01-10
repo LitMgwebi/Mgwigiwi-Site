@@ -1,6 +1,6 @@
 //#region Imports and Router initialization
 const log = require('../config/logging');
-const Concept = require("../Models/Concept");
+const Concept = require("../Models/Concept")
 const {Router} = require("express");
 const requireAuth = require("../middleware/requireAuth");
 const upload = require("../middleware/upload");
@@ -39,7 +39,7 @@ router.get("/:id", async(req, res) => {
     let concept = null;
     try {
         concept = await Concept.findById(req.params.id);
-
+        
         res.status(201).send({
             concept: concept,
             error: null,
@@ -61,26 +61,28 @@ router.get("/:id", async(req, res) => {
 //#region POST
 router.post('/add', upload.array("photos"), async(req, res) => {
     let concept = null;
-    let photoArray = [];
-    let public_idArray = []
-    let data = null
-
+    let data;
+    const photos = []
+    const public_ids = []
     try{
-        req.files.map(async(file, i) => {
-            data =  await uploadToCloudinary(file.path, "concept");
-            photoArray.push(data.url);
-            public_idArray.push(data.public_id);
-        });
+        const files = req.files;
+        for (const file of files) {
+            const {path} = file;
+            data = await uploadToCloudinary(path, "concept");
+
+            const {url, public_id} = data;
+            photos.push(url);
+            public_ids.push(public_id);
+        }
 
         concept = new Concept({
             title: req.body.title,
             description: req.body.description,
-            photos: photoArray,
-            public_ids: public_idArray,
+            photos: photos,
+            public_ids: public_ids,
         });
 
         await concept.save();
-
         res.status(201).send({
             concept: concept,
             error: null,
@@ -96,3 +98,26 @@ router.post('/add', upload.array("photos"), async(req, res) => {
     }
 });
 //#endregion
+
+//#region DELETE /fine-art/:id
+router.delete('/:id', async(req, res) =>{
+    let concept = null
+    try {
+        concept = await Concept.findById(req.params.id);
+        for(let i = 0; i < concept.public_ids.length; i++){
+            const publicId = concept.public_ids[i];
+            await removeFromCloudinary(publicId);
+        }
+        
+        await concept.remove();
+    } catch (error) {
+        log.error(error.message)
+        res.status(400).send({
+            concept: concept,
+            error: error.message,
+            message: "Record retrieval failed"
+        });
+    }
+});
+//#endregion
+module.exports = router;
