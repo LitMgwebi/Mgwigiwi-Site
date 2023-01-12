@@ -39,7 +39,7 @@ function CharacterDesignRecord(){
                 <h2>{payload.nameOfCharacter}</h2>
 
                 <div className="button-group">
-                    <Link to="/portfolio/characterDesign/"><button>Back</button></Link>
+                    <Link to="/portfolio/character-design/"><button>Back</button></Link>
                     <button onClick={handleConfirm}>
                         Delete
                     </button>

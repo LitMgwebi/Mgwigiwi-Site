@@ -1,6 +1,7 @@
 import axios from "axios"
 const { useEffect, useState } = require("react");
 
+//#region GET ALL
 const GetAll = (dest) => {
     const [payloads, setPayloads] = useState(null);
     const [error, setError] = useState(null);
@@ -11,10 +12,6 @@ const GetAll = (dest) => {
             method: "GET",
             url: `http://localhost:1500/${dest}/`
         }).then((res) => {
-            if (res.data.error != null) {
-                console.error(res.data.error);
-                return;
-            }
             if (res.data) {
                 setPayloads(res.data[dest])
                 setError(null);
@@ -30,6 +27,36 @@ const GetAll = (dest) => {
 
     return { payloads, error, isPending, setIsPending, setError }
 }
+
+const GetAllTranslation = (id) => {
+    const [payloads, setPayloads] = useState(null);
+    const [error, setError] = useState(null);
+    const [isPending, setIsPending] = useState(true);
+
+    useEffect(() => {
+        axios({
+            method: "GET",
+            url: `http://localhost:1500/translation/`,
+            params:{
+                characterDesign: id
+            }
+        }).then((res) => {
+            if (res.data) {
+                setPayloads(res.data.translation)
+                setError(null);
+            } else {
+                setError("There are no entries in the database")
+            }
+            setIsPending(false);
+        }).catch((error) => {
+            setIsPending(false);
+            setError(error.response.data.error);
+        });
+    }, [id]);
+
+    return { payloads, error, isPending, setIsPending, setError }
+}
+//#endregion
 
 //#region GET 1
 
@@ -100,4 +127,4 @@ const GetOneCharacterDesign = (id) => {
 }
 //#endregion
 
-export { GetAll, GetOneConcept, GetOneCharacterDesign };
+export { GetAll, GetOneConcept, GetOneCharacterDesign, GetAllTranslation };

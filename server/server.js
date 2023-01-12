@@ -13,6 +13,7 @@ const userController = require("./Controllers/userController");
 const backgroundController = require("./Controllers/backgroundController");
 const conceptController = require("./Controllers/conceptController");
 const characterDesignController = require("./Controllers/characterDesignController");
+const translationController = require("./Controllers/translationController");
 //#endregion
 
 //#region Server configuration
@@ -49,4 +50,5 @@ server.use('/fineArt', fineArtController);
 server.use('/auth', userController);
 server.use('/concept', conceptController);
 server.use('/characterDesign', characterDesignController);
+server.use('/translation', translationController);
 //#endregion
