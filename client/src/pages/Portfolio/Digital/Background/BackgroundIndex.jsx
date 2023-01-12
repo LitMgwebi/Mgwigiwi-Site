@@ -2,7 +2,7 @@ import { GetAll } from "../../../../hooks/useGet";
 import { Card } from "@material-ui/core";
 import BackgroundCard from "./components/BackgroundCard";
 import AddBackground from "./components/AddBackground";
-import ProjectHeader from "../../../../components/Templates/ProjectHeader";
+import ProjectHeader from "../../../../components/ProjectHeader";
 
 function BackgroundIndex() {
     const { payloads, isPending, error } = GetAll("background");

@@ -1,4 +1,4 @@
-import LinkCard from "../../../components/Templates/LinkCard";
+import LinkCard from "../../../components/LinkCard";
 
 function Digital({ handleFlip }) {
     return (

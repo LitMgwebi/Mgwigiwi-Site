@@ -49,7 +49,7 @@ function AddConcept() {
                 <h1>Create</h1>
                 <div className="button-group">
                     <button type="submit" className="btn btn-primary">Submit</button>
-                    <Link to="/portfolio"><button>Cancel</button></Link>
+                    <Link to="/portfolio/concept"><button>Cancel</button></Link>
                 </div>
             </div>
             <div className="contentContainer">

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
 import axios from "axios";
-import GetConcept from "./hooks/useGetOneConcept";
+import { GetOneConcept } from "../../../../hooks/useGet";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import 'swiper/css';
@@ -14,7 +14,7 @@ function ConceptRecord() {
     const navigate = useNavigate();
     const id = location.state.stateId;
     
-    const { payload, isPending, error, setIsPending, setError } = GetConcept(id);
+    const { payload, isPending, error, setIsPending, setError } = GetOneConcept(id);
 
     const photos = Array.from(payload.photos)
     const handleConfirm = () => {
@@ -29,13 +29,12 @@ function ConceptRecord() {
         }).then((res) => {
             setIsPending(false);
             setError(null);
+            navigate("/portfolio/concept")
         }).catch((error) => {
             console.error(error.message);
             setIsPending(false);
             setError(error.response.data.error);
         });
-
-        navigate("/portfolio/concept")
     }
 
     return (

@@ -12,6 +12,7 @@ const fineArtController = require("./Controllers/fineArtController");
 const userController = require("./Controllers/userController");
 const backgroundController = require("./Controllers/backgroundController");
 const conceptController = require("./Controllers/conceptController");
+const characterDesignController = require("./Controllers/characterDesignController");
 //#endregion
 
 //#region Server configuration
@@ -47,4 +48,5 @@ server.use('/background', backgroundController);
 server.use('/fineArt', fineArtController);
 server.use('/auth', userController);
 server.use('/concept', conceptController);
+server.use('/characterDesign', characterDesignController);
 //#endregion

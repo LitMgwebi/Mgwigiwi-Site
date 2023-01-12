@@ -1,7 +1,7 @@
-import LinkCard from "../../components/Templates/LinkCard";
-import ProjectHeader from "../../components/Templates/ProjectHeader";
+import LinkCard from "../../components/LinkCard";
+import ProjectHeader from "../../components/ProjectHeader";
 import { useState } from "react";
-import FlipCard from "../../components/Templates/FlipCard";
+import FlipCard from "../../components/FlipCard";
 import ReactCardFlip from "react-card-flip";
 import Digital from "./Digital/Digital";
 

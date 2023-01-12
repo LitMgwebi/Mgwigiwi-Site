@@ -2,7 +2,7 @@ import { GetAll } from "../../../hooks/useGet";
 import FineArtCard from "./components/FineArtCard";
 import AddFineArt from "./components/AddFineArt";
 import { Card } from "@material-ui/core";
-import ProjectHeader from "../../../components/Templates/ProjectHeader";
+import ProjectHeader from "../../../components/ProjectHeader";
 
 function FineArtIndex() {
     const { payloads, isPending, error } = GetAll("fineArt");

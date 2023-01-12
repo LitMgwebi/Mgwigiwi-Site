@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ProjectHeader from "../../components/Templates/ProjectHeader";
+import ProjectHeader from "../../components/ProjectHeader";
 
 function Home() {
     return(
