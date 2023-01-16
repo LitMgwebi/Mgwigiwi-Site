@@ -23,13 +23,13 @@ function Portfolio() {
                         <LinkCard
                             routeLink="fine-art"
                             contentHeader="Fine Art"
-                            imgLink={require("../../media/digital-drawing.png")}
+                            imgLink={require("../../media/fine-art.png")}
                             tagLine="This is fine art"
                         />
                         <LinkCard
                             routeLink="animation"
                             contentHeader="Animation"
-                            imgLink={require("../../media/digital-drawing.png")}
+                            imgLink={require("../../media/animation.png")}
                             tagLine=""
                         />
                     </div>

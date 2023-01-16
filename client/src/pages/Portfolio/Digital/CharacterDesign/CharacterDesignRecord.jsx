@@ -1,20 +1,23 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
 import axios from "axios";
-import { GetOneCharacterDesign } from "../../../../hooks/useGet";
+import { GetAllTranslation, GetOneCharacterDesign } from "../../../../hooks/useGet";
+import TranslationIndex from "./Translation/TranslationIndex";
 
-function CharacterDesignRecord(){
+function CharacterDesignRecord() {
     const location = useLocation();
     const navigate = useNavigate();
     const id = location.state.stateId;
-    
+
     const { payload, isPending, error, setIsPending, setError } = GetOneCharacterDesign(id);
+
+    const { payloads } = GetAllTranslation(id)
 
     const handleConfirm = () => {
         if (window.confirm("Are you sure you want to delete"))
             handleDelete();
     }
-    
+
     function handleDelete() {
         axios({
             method: "DELETE",
@@ -22,7 +25,7 @@ function CharacterDesignRecord(){
         }).then((res) => {
             setIsPending(false);
             setError(null);
-            navigate("/portfolio/characterDesign")
+            navigate("/portfolio/character-design")
         }).catch((error) => {
             console.error(error.message);
             setIsPending(false);
@@ -30,7 +33,7 @@ function CharacterDesignRecord(){
         });
     }
 
-    return(
+    return (
         <div id="Record">
             <div className="section">
                 {error && <div className="error">{error}</div>}
@@ -49,6 +52,12 @@ function CharacterDesignRecord(){
             <div className="information">
                 <img src={payload.originalCharacter} alt={payload.nameOfCharacter} />
             </div>
+
+            {payloads && payloads.map((payload, i) => {
+                return (
+                    <TranslationIndex payload={payload} />
+                );
+            })}
         </div>
     )
 }

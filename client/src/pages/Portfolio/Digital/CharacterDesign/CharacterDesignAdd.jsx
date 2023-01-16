@@ -1,14 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import TranslationAdd from "./Translation/TranslationAdd";
 
 function CharacterDesignAdd() {
     const [error, setError] = useState(null);
     const [status, setStatus] = useState(null);
     const [nameOfCharacter, setNameOfCharacter] = useState("");
     const [originalCharacter, setOriginalCharacter] = useState("");
-    const navigate = useNavigate();
-    let [translation, setTranslation] = useState(false)
+    const [translation, setTranslation] = useState(false);
+    const [id, setId] = useState(null);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -31,8 +32,8 @@ function CharacterDesignAdd() {
             setStatus(res.data.message)
             console.log(res.data.characterDesign)
 
+            setId(res.data.characterDesign._id)
             setTranslation(true)
-            // navigate("/portfolio/character-design")
         }).catch((error) => {
             console.error(error.response.data.error);
             setError(error.response.data.error);
@@ -73,7 +74,7 @@ function CharacterDesignAdd() {
                 </div>
             </form>
             
-            {translation &&  <button>Add Translation</button>}
+            {translation &&  <TranslationAdd id={id}/>}
         </div>
     )
 }

@@ -10,15 +10,17 @@ const { uploadToCloudinary, removeFromCloudinary } = require("../services/cloudi
 const router = Router();
 //#endregion
 
-
 //#region GET
 router.get('/', async(req, res) => {
-    const {characterDesgin} = req.params
+    const id = req.query.characterDesign
     let translation = null;
-
-    // const query = Translation.find({ characterDesign: characterDesgin})
+    // const query = await 
+    
     try {
-        translation = await Translation.find({ characterDesign: characterDesgin}).exec();
+        translation = await Translation.find({ 
+            characterDesign: id
+        }).exec();
+        
         res.status(200).send({
             translation: translation,
             error: null,
@@ -36,7 +38,7 @@ router.get('/', async(req, res) => {
 //#endregion
 
 //#region POST
-router.post('/add', upload.array("photos"), async(req, res) => {
+router.post('/add', upload.array("process"), async(req, res) => {
     let translation = null;
     let data;
     const process = [];
@@ -55,7 +57,7 @@ router.post('/add', upload.array("photos"), async(req, res) => {
 
         translation = new Translation({
             description: req.body.description,
-            characterDesign: characterDesign,
+            characterDesign: req.body.characterDesign,
             process: process,
             public_ids: public_ids
         });
@@ -68,6 +70,10 @@ router.post('/add', upload.array("photos"), async(req, res) => {
             message: "New record was created"
         });
     }catch(error){
+        for(let i = 0; i < public_ids.length; i++){
+            const publicId = public_ids[i];
+            await removeFromCloudinary(publicId);
+        }
         log.error(error);
         res.status(400).send({
             translation: translation,
@@ -79,5 +85,25 @@ router.post('/add', upload.array("photos"), async(req, res) => {
 //#endregion
 
 //#region DELETE
+router.delete("/:id", async function(req, res) {
+    let translation = null;
+    try{
+        translation = await Translation.findById(req.params.id);
+        for(let i = 0; i < translation.public_ids.length; i++){
+            const publicId = translation.public_ids[i];
+            await removeFromCloudinary(publicId);
+        }
+        
+        await translation.remove();
+    } catch (error) {
+        log.error(error.message)
+        res.status(400).send({
+            translation: translation,
+            error: error.message,
+            message: "Record retrieval failed"
+        });
+    }
+})
 //#endregion
+
 module.exports = router;

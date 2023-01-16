@@ -12,19 +12,19 @@ function Digital({ handleFlip }) {
                 <LinkCard
                     routeLink="concept"
                     contentHeader="Concept"
-                    imgLink={require("../../../media/digital-drawing.png")}
+                    imgLink={require("../../../media/concept.png")}
                     tagLine=""
                 />
                 <LinkCard
                     routeLink="character-design"
                     contentHeader="Character design"
-                    imgLink={require("../../../media/digital-drawing.png")}
+                    imgLink={require("../../../media/character-design.png")}
                     tagLine=""
                 />
                 <LinkCard
                     routeLink="background"
                     contentHeader="Background"
-                    imgLink={require("../../../media/digital-drawing.png")}
+                    imgLink={require("../../../media/photography-equipment.png")}
                     tagLine=""
                 />
 

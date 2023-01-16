@@ -15,10 +15,14 @@ function BackgroundIndex() {
                 <ProjectHeader header="Background Art" link="/portfolio"/>
             </div>
 
-            <div className="contentContainer">
-                <Card className="card">
+
+            <div className="cardForm">
+            <Card className="createCard">
                     <AddBackground />
                 </Card>
+            </div>
+
+            <div className="contentContainer">
                 {payloads && payloads.map((payload, i) => {
                     return (
                         <BackgroundCard payload={payload} />

@@ -75,7 +75,7 @@ router.post('/add', upload.single('originalCharacter'), async (req, res) => {
         res.status(201).send({
             characterDesign: cd,
             error: null,
-            message: "New record was created"
+            message: "New character was created"
         });
     } catch (error) {
         log.error(error);

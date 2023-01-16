@@ -15,10 +15,11 @@ function FineArtIndex() {
                 <ProjectHeader header="Fine Art" link="/portfolio"/>
             </div>
 
-            <div className="ContentContainer">
-                <Card className="card">
+            <Card className="createCard">
                     <AddFineArt />
                 </Card>
+            <div className="contentContainer">
+                
                 {payloads && payloads.map((payload, i) => {
                     return (
                         <FineArtCard payload={payload} />

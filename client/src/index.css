@@ -35,20 +35,20 @@ code {
   flex-direction: row;
   background-color: aquamarine;
 }
-.ContentContainer{
-  width: 65rem;
-  margin: 0rem auto;
-  max-height: 28rem;
+.contentContainer{
+  width: 70rem;
+  margin: 1rem auto;
+  /* max-height: 28rem; */
   min-height: 23rem;
   /* align-items: center; */
-  overflow: auto;
-  height: auto;
+  overflow-y: auto;
+  /* height: auto; */
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
-  text-align: center;
+  /* text-align: center; */
   background-color: grey;
-  padding: 1.4em 1.4em;
+  padding: 1em 1em;
 }
 .card{
   width: 14rem;

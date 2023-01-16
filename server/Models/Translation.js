@@ -13,7 +13,7 @@ const translationSchema = new Schema({
     characterDesign: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: 'CharacterDesign'
+        // ref: 'CharacterDesign'
     },
 }, {timestamps: true});
 
