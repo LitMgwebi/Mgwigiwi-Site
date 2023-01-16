@@ -55,7 +55,7 @@ function TranslationAdd({id}) {
                             onChange={(e) => setDescription(e.target.value)}
                         />
                     </div>
-                    <div className="processInput">
+                    <div className="photosInput">
                         <label>Process:</label>
                         <input
                             type="file"

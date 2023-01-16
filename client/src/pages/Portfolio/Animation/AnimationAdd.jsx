@@ -1,45 +1,17 @@
-import axios from "axios";
+import axios from 'axios';
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function AddConcept() {
-    const [photos, setPhotos] = useState("");
+function AnimationAdd() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [movements, setMovements] = useState("");
+    const [preview, setPreview] = useState("");
+    const [effects, setEffects] = useState("");
+    const [backgrounds, setBackgrounds] = useState("");
     const [error, setError] = useState(null);
     const [status, setStatus] = useState(null);
     const navigate = useNavigate();
-
-
-    function handleSubmit(e) {
-        e.preventDefault();
-
-        const formData = new FormData();
-
-        formData.append("title", title);
-        formData.append("description", description);
-        for (let i = 0; i < photos.length; i++) {
-            formData.append("photos", photos[i]);
-        }
-
-        axios({
-            method: "POST",
-            url: "http://localhost:1500/concept/add",
-            data: formData,
-            headers: {
-                'accept': 'application/json',
-                'Content-Type': `multipart/form-data`,
-            }
-        }).then((res) => {
-            setError(null);
-            setStatus(res.data.message)
-        }).catch((error) => {
-            console.error(error.response.data.error);
-            setError(error.response.data.error);
-        });
-
-        navigate("/portfolio/concept")
-    }
 
     return (
         <form onSubmit={handleSubmit} encType='multipart/form-data'>
@@ -52,6 +24,7 @@ function AddConcept() {
                     <Link to="/portfolio/concept"><button>Cancel</button></Link>
                 </div>
             </div>
+
             <div className="contentContainer">
                 <div className="titleInput">
                     <label>Title:</label>
@@ -85,4 +58,4 @@ function AddConcept() {
     )
 }
 
-export default AddConcept;
+export default AnimationAdd;

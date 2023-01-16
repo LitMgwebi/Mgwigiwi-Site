@@ -1,23 +1,24 @@
 import { Card, CardHeader, CardMedia } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-function ConceptCard({ payload }) {
+function AnimationCard({ payload }) {
     return (
         <Card className="card">
             <Link
-                to={`/portfolio/concept/${payload._id}`}
+                to={`/portfolio/animation/${payload._id}`}
                 state={{stateId: payload._id}}
             >
                 <CardHeader title={payload.title}/>
                 <CardMedia
-                    component="img"
+                    component="video"
                     alt={payload.title}
-                    image={payload.photos[0]}
+                    image={payload.preview}
                     className="cardMedia"
+                    autoPlay
                 />
             </Link>
         </Card>
     );
 }
 
-export default ConceptCard;
+export default AnimationCard;

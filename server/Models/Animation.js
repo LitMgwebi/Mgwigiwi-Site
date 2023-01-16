@@ -5,9 +5,12 @@ const animationSchema = new Schema({
         type: String,
         required: [true, "Please enter the title of your piece: "]
     },
-    // animation: {
-    //     type: String,
-    // },
+    preview: {
+        type: String,
+    },
+    preview_public_id: {
+        type: String,
+    },
     description: {  
         type: String,
     },

@@ -1,4 +1,4 @@
-import { Card, CardMedia } from "@material-ui/core";
+import { Card, CardMedia, CardHeader, CardActionArea } from "@material-ui/core";
 import axios from "axios";
 import { useState } from "react";
 
@@ -31,18 +31,18 @@ function BackgroundCard({ payload }) {
 
     return (
         <Card className="card">
-            <div>
-                <div className="cardHeader">{payload.title}</div>
-                <button onClick={handleConfirm}>Delete</button>
-                {error && <div className="error">{error}</div>}
-                {isPending && <div>Loading...</div>}
-            </div>
+            <CardHeader title={payload.title}/>
             <CardMedia
                 component="img"
                 alt={payload.title}
                 image={payload.photo}
                 className="cardMedia"
             />
+            <CardActionArea>
+            <button onClick={handleConfirm}>Delete</button>
+                {error && <div className="error">{error}</div>}
+                {isPending && <div>Loading...</div>}
+            </CardActionArea>
         </Card>
     )
 }

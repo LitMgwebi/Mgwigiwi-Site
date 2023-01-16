@@ -15,6 +15,8 @@ import ConceptIndex from "./pages/Portfolio/Digital/Concept/ConceptIndex";
 import ConceptAdd from "./pages/Portfolio/Digital/Concept/ConceptAdd";
 import ConceptRecord from "./pages/Portfolio/Digital/Concept/ConceptRecord";
 
+import AnimationIndex from "./pages/Portfolio/Animation/AnimationIndex";
+import AnimationAdd from "./pages/Portfolio/Animation/AnimationAdd";
 import {
   BrowserRouter,
   Routes,
@@ -40,6 +42,9 @@ function App() {
           <Route path="/portfolio/character-design" element={<CharacterDesignIndex />} />
           <Route path="/portfolio/character-design/add" element={<CharacterDesignAdd />} />
           <Route path="/portfolio/character-design/:id" element={<CharacterDesignRecord />} />
+        
+          <Route path="/portfolio/animation" element={<AnimationIndex />} />
+          <Route path="/portfolio/animation/add" element={<AnimationAdd />} />
         </Routes>
         <Footer />
       </BrowserRouter>
