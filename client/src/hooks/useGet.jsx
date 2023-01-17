@@ -125,6 +125,46 @@ const GetOneCharacterDesign = (id) => {
 
     return { payload, isPending, error, setIsPending, setError }
 }
+
+const GetOneAnimation = (id) => {
+    const [payload, setPayload] = useState({
+        title: "",
+        preview: "",
+        description: "",
+        movements: "",
+        backgrounds: "",
+        effects: ""
+    });
+    const [isPending, setIsPending] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        axios({
+            method: "GET",
+            url: `http://localhost:1500/animation/${id}`
+        }).then((res) => {
+            const update = {
+                title: res.data.animation.title,
+                preview: res.data.animation.preview,
+                description: res.data.animation.description,
+                movements: res.data.animation.movements,
+                backgrounds: res.data.animation.backgrounds,
+                effects: res.data.animation.effects
+            }
+            setPayload(payload => ({
+                ...payload,
+                ...update
+            }));
+            setIsPending(false);
+            setError(null);
+        }).catch((error) => {
+            setIsPending(false);
+            setError(error);
+        })
+    }, [id]);
+
+    return {payload, isPending, error, setIsPending, setError};
+}
 //#endregion
 
-export { GetAll, GetOneConcept, GetOneCharacterDesign, GetAllTranslation };
+export { GetAll, GetOneConcept, GetOneCharacterDesign, GetAllTranslation, GetOneAnimation};

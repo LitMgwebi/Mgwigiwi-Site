@@ -2,13 +2,14 @@ import LinkCard from "../../../components/LinkCard";
 
 function Digital({ handleFlip }) {
     return (
-        <div>
-
+        <div id="Menu">
+            <div id="ProjectHeader">
             <button className="flipButton" onClick={handleFlip}>
                 Back
             </button>
             <h1>Digital Art</h1>
-            <div className="ContentContainer">
+            </div>
+            <div className="cardContainer">
                 <LinkCard
                     routeLink="concept"
                     contentHeader="Concept"

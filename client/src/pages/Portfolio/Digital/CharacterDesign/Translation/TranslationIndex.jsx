@@ -1,10 +1,5 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 import axios from "axios";
+import Slider from "../../../../../components/Slider";
 import { useState } from "react";
 
 function TranslationIndex({payload}){
@@ -31,7 +26,7 @@ function TranslationIndex({payload}){
     }
     return(
         <div className="translationIndex">
-            <div className="section">
+            <div className="controls">
                 {error && <div className="error">{error}</div>}
                 {/* {isPending && <div>Loading...</div>} */}
 
@@ -46,21 +41,7 @@ function TranslationIndex({payload}){
 
             <div className="information">
                 <p>{payload.description}</p>
-                <Swiper
-                    modules={[Navigation, A11y, Pagination, Scrollbar]}
-                    spaceBetween={50}
-                    slidesPerView={1}
-                    navigation
-                    pagination={{ clickable: true }}
-                    scrollbar={{ draggable: true }}
-                >
-                    {process.map(photo => (
-                        <SwiperSlide className="characterDesignImage">
-                            <img src={photo} alt="process Image" />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-
+                <Slider photos={process} title="process Image"/>
             </div>
         </div>
     )

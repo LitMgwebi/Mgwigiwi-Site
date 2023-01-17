@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function TranslationAdd({id}) {
+function TranslationAdd({ id }) {
     const [process, setProcess] = useState("");
     const [description, setDescription] = useState("");
     const [error, setError] = useState(null);
@@ -14,7 +14,7 @@ function TranslationAdd({id}) {
         const formData = new FormData();
 
         formData.append("description", description);
-        for(let i = 0; i < process.length; i++){
+        for (let i = 0; i < process.length; i++) {
             formData.append("process", process[i]);
         }
         formData.append("characterDesign", id)
@@ -35,9 +35,9 @@ function TranslationAdd({id}) {
             setError(error.response.data.error);
         });
     }
-    return(
+    return (
         <form onSubmit={handleSubmit} encType='multipart/form-data'>
-             <div className="section">
+            <div className="section">
                 <p>{status}</p>
                 {error && <div className="error">{error}</div>}
                 <h1>Create</h1>
@@ -46,26 +46,26 @@ function TranslationAdd({id}) {
                     <Link to="/portfolio/concept"><button>Cancel</button></Link>
                 </div>
             </div>
-            <div className="contentContainer">
-                    <div className="descriptionInput">
-                        <label>Description:</label>
-                        <textarea
-                            name="description"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                        />
-                    </div>
-                    <div className="photosInput">
-                        <label>Process:</label>
-                        <input
-                            type="file"
-                            name="process"
-                            accept="image/*"
-                            onChange={(e) => {setProcess(e.target.files)}}
-                            multiple
-                        />
-                    </div>
+            <div className="formInput">
+                <div className="multilineInput">
+                    <label>Description:</label>
+                    <textarea
+                        name="description"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
                 </div>
+                <div className="photoInput">
+                    <label>Process:</label>
+                    <input
+                        type="file"
+                        name="process"
+                        accept="image/*"
+                        onChange={(e) => { setProcess(e.target.files) }}
+                        multiple
+                    />
+                </div>
+            </div>
         </form>
     )
 }

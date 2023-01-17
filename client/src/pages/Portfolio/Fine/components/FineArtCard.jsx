@@ -1,5 +1,5 @@
 import ReactCardFlip from "react-card-flip";
-import { Card, CardMedia, CardActionArea } from "@material-ui/core";
+import { Card, CardMedia, CardActionArea, CardHeader } from "@material-ui/core";
 import FineArtCardFlipped from "./FineArtCardFlipped";
 import { useState } from "react"
 
@@ -11,14 +11,15 @@ function FineArtCard({ payload }) {
     }
     return (
         <ReactCardFlip isFlipped={flip} flipDirection="vertical">
-            <Card className="artCard">
+            <Card className="card">
+                <CardHeader className="cardHeader" title={payload.title}/>
                 <CardMedia
                     component="img"
                     alt={payload.title}
                     image={payload.photo}
-                    className="artCardMedia"
+                    className="cardMedia"
                 />
-                <CardActionArea className="artCardContent">
+                <CardActionArea className="cardActionArea">
                     <button onClick={flipCard} className="flipButton">
                         Flip
                     </button>

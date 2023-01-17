@@ -31,15 +31,15 @@ function BackgroundCard({ payload }) {
 
     return (
         <Card className="card">
-            <CardHeader title={payload.title}/>
+            <CardHeader className="cardHeader" title={payload.title} />
             <CardMedia
                 component="img"
                 alt={payload.title}
                 image={payload.photo}
                 className="cardMedia"
             />
-            <CardActionArea>
-            <button onClick={handleConfirm}>Delete</button>
+            <CardActionArea className="cardActionArea">
+                <button onClick={handleConfirm}>Delete</button>
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
             </CardActionArea>

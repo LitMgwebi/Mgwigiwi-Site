@@ -13,6 +13,41 @@ function AnimationAdd() {
     const [status, setStatus] = useState(null);
     const navigate = useNavigate();
 
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        const formData = new FormData();
+
+        formData.append("title", title);
+        formData.append("description", description);
+        formData.append("preview", preview);
+        for (let i = 0; i < movements.length; i++) {
+            formData.append("movements", movements[i]);
+        }
+        for (let i = 0; i < effects.length; i++) {
+            formData.append("effects", effects[i]);
+        }
+        for (let i = 0; i < backgrounds.length; i++) {
+            formData.append("backgrounds", backgrounds[i]);
+        }
+
+        axios({
+            method: "POST",
+            url: 'http://localhost:1500/animation/add',
+            data: formData,
+            headers: {
+                'accept': 'application/json',
+                'Content-Type': 'multipart/form-data',
+            }
+        }).then((res) => {
+            setError(null);
+            setStatus(res.data.message)
+        }).catch((error) => {
+            setError(error.response.data.error);
+            console.error(error.response.data.error);
+        })
+        navigate("/portfolio/animation")
+    }
     return (
         <form onSubmit={handleSubmit} encType='multipart/form-data'>
             <div className="section">
@@ -25,8 +60,8 @@ function AnimationAdd() {
                 </div>
             </div>
 
-            <div className="contentContainer">
-                <div className="titleInput">
+            <div className="formInput">
+                <div className="singleLineInput">
                     <label>Title:</label>
                     <input
                         type="text"
@@ -35,7 +70,16 @@ function AnimationAdd() {
                         onChange={(e) => setTitle(e.target.value)}
                     />
                 </div>
-                <div className="descriptionInput">
+                <div className="photoInput">
+                    <label>Preview:</label>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        name="preview"
+                        onChange={(e) => setPreview(e.target.files[0])}
+                    />
+                </div>
+                <div className="multilineInput">
                     <label>Description:</label>
                     <textarea
                         name="description"
@@ -43,13 +87,33 @@ function AnimationAdd() {
                         onChange={(e) => setDescription(e.target.value)}
                     />
                 </div>
-                <div className="photosInput">
-                    <label>Photos:</label>
+                <div className="photoInput">
+                    <label>Movements:</label>
                     <input
                         type="file"
-                        name="photos"
+                        name="movements"
                         accept="image/*"
-                        onChange={(e) => { setPhotos(e.target.files) }}
+                        onChange={(e) => { setMovements(e.target.files) }}
+                        multiple
+                    />
+                </div>
+                <div className="photoInput">
+                    <label>Backgrounds:</label>
+                    <input
+                        type="file"
+                        name="backgrounds"
+                        accept="image/*"
+                        onChange={(e) => { setBackgrounds(e.target.files) }}
+                        multiple
+                    />
+                </div>
+                <div className="photoInput">
+                    <label>Effects:</label>
+                    <input
+                        type="file"
+                        name="effects"
+                        accept="image/*"
+                        onChange={(e) => { setEffects(e.target.files) }}
                         multiple
                     />
                 </div>

@@ -8,7 +8,7 @@ function FineArtIndex() {
     const { payloads, isPending, error } = GetAll("fineArt");
 
     return (
-        <div>
+        <div id="Index">
             <div>
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
@@ -18,7 +18,7 @@ function FineArtIndex() {
             <Card className="createCard">
                     <AddFineArt />
                 </Card>
-            <div className="contentContainer">
+            <div className="information">
                 
                 {payloads && payloads.map((payload, i) => {
                     return (

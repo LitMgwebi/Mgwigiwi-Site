@@ -7,8 +7,8 @@ function ConceptIndex() {
     const { payloads, isPending, error } = GetAll("concept");
 
     return (
-        <div className="ConceptIndex">
-            <div className="controlContainer">
+        <div id="Index">
+            <div className="controls">
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
                 <div>
@@ -16,7 +16,7 @@ function ConceptIndex() {
                 </div>
                 <ProjectHeader header="Concept Art" link="/portfolio" />
             </div>
-            <div className="contentContainer">
+            <div className="information">
                 {payloads && payloads.map((payload, i) => {
                     return (
                         <ConceptCard payload={payload} />

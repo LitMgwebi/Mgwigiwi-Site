@@ -11,7 +11,7 @@ function AddBackground() {
     function handleSubmit(e) {
         e.preventDefault();
 
-         // const formData = new FormData();
+        // const formData = new FormData();
         // formData.append('title', title);
         // formData.append('photo', photo);
 
@@ -25,7 +25,6 @@ function AddBackground() {
             url: 'http://localhost:1500/background/add',
             data: data,
             headers: {
-                // 'Content-Type': 'application/json'
                 'accept': 'application/json',
                 'Content-Type': 'multipart/form-data',
             }
@@ -38,32 +37,36 @@ function AddBackground() {
 
         window.location.reload(false)
     }
-    return(
+    return (
         <form onSubmit={handleSubmit} encType='multipart/form-data'>
-            <h3>Add Background art</h3>
-            {error && <div className="error">{error}</div>}
+            <div className="controls">
+                <h3>Add Background art</h3>
+                {error && <div className="error">{error}</div>}
+                <div className="button-group">
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <Link to="/"><button>Cancel</button></Link>
+                </div>
+            </div>
 
-            <div className="titleInput">
-                <label>Title:</label>
-                <input
-                    type="text"
-                    name="title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
-            </div>
-            <div className="photoInput">
-                <label>Piece:</label>
-                <input
-                    type="file"
-                    accept="image/*"
-                    name="photo"
-                    onChange={(e) => setPhoto(e.target.files[0])}
-                />
-            </div>
-            <div className="button-group">
-                <button type="submit" className="btn btn-primary">Submit</button>
-                <Link to="/"><button>Cancel</button></Link>
+            <div className="formInput">
+                <div className="singleLineInput">
+                    <label>Title:</label>
+                    <input
+                        type="text"
+                        name="title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                </div>
+                <div className="photoInput">
+                    <label>Piece:</label>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        name="photo"
+                        onChange={(e) => setPhoto(e.target.files[0])}
+                    />
+                </div>
             </div>
         </form>
     )

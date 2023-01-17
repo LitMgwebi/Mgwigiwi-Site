@@ -33,7 +33,6 @@ function AddFineArt() {
             url: 'http://localhost:1500/fineArt/add',
             data: data,
             headers: {
-                // 'Content-Type': 'application/json'
                 'accept': 'application/json',
                 'Content-Type': 'multipart/form-data',
             }
@@ -48,63 +47,66 @@ function AddFineArt() {
     }
     return (
         <form onSubmit={handleSubmit} encType='multipart/form-data'>
-            <h3>Add Fine art</h3>
-            {error && <div className="error">{error}</div>}
-            <div className="titleInput">
-                <label>Title:</label>
-                <input
-                    type="text"
-                    name="title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
+            <div className="controls">
+                <h3>Add Fine art</h3>
+                {error && <div className="error">{error}</div>}
+                <div className="button-group">
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <Link to="/"><button>Cancel</button></Link>
+                </div>
             </div>
+            <div className="formInput">
+                <div className="singleLineInput">
+                    <label>Title:</label>
+                    <input
+                        type="text"
+                        name="title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                </div>
 
-            <div className="physicalTypeInput">
-                <label>Type:</label>
-                <select
-                    name="physicalType"
-                    value={physicalType}
-                    onChange={(e) => { setPhysicalType(e.target.value) }}
-                >
-                    <option value="Landscape">Landscape</option>
-                    <option value="Portrait">Portrait</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
+                <div className="selectInput">
+                    <label>Type:</label>
+                    <select
+                        name="physicalType"
+                        value={physicalType}
+                        onChange={(e) => { setPhysicalType(e.target.value) }}
+                    >
+                        <option value="Landscape">Landscape</option>
+                        <option value="Portrait">Portrait</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
 
-            <div className="dimensionInput">
-                <label>Dimension:</label>
-                <input
-                    type="text"
-                    name="dimension"
-                    value={dimension}
-                    onChange={(e) => setDimension(e.target.value)}
-                />
-            </div>
+                <div className="singleLineInput">
+                    <label>Dimension:</label>
+                    <input
+                        type="text"
+                        name="dimension"
+                        value={dimension}
+                        onChange={(e) => setDimension(e.target.value)}
+                    />
+                </div>
 
-            <div className="descriptionInput">
-                <label>Description:</label>
-                <input
-                    type="text"
-                    name="description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                />
-            </div>
+                <div className="multilineInput">
+                    <label>Description:</label>
+                    <textarea
+                        name="description"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
+                </div>
 
-            <div className="photoInput">
-                <label>Piece:</label>
-                <input
-                    type="file"
-                    accept="image/*"
-                    name="photo"
-                    onChange={(e) => setPhoto(e.target.files[0])}
-                />
-            </div>
-            <div className="button-group">
-                <button type="submit" className="btn btn-primary">Submit</button>
-                <Link to="/"><button>Cancel</button></Link>
+                <div className="photoInput">
+                    <label>Piece:</label>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        name="photo"
+                        onChange={(e) => setPhoto(e.target.files[0])}
+                    />
+                </div>
             </div>
         </form>
     )

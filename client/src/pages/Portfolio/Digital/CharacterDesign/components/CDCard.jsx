@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia } from "@material-ui/core";
+import { Card, CardHeader, CardMedia } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 function CDCard({payload}) {
@@ -9,15 +9,13 @@ function CDCard({payload}) {
                 to={`/portfolio/character-design/${payload._id}`}
                 state={{stateId: payload._id}}
             >
+                <CardHeader className="cardHeader" title={payload.nameOfCharacter}/>
                 <CardMedia
                     component="img"
                     alt={payload.nameOfCharacter}
                     image={payload.originalCharacter}
                     className="cardMedia"
                 />
-                <CardContent className='cardContent'>
-                    <h3 className="cardHeader">{payload.nameOfCharacter}</h3>
-                </CardContent>
             </Link>
         </Card>
     );

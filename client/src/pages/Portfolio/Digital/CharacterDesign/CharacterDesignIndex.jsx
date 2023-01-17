@@ -8,7 +8,7 @@ function CharacterDesignIndex(){
 
     return (
         <div id="Index">
-            <div className="controlContainer">
+            <div className="controls">
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
                 <div>
@@ -16,7 +16,7 @@ function CharacterDesignIndex(){
                 </div>
                 <ProjectHeader header="Character Design" link="/portfolio" />
             </div>
-            <div className="contentContainer">
+            <div className="information">
                 {payloads && payloads.map((payload, i) => {
                     return (
                         <CDCard payload={payload} />

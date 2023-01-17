@@ -53,28 +53,30 @@ function CharacterDesignAdd() {
                     </div>
                 </div>
 
-                <div className="nameOfCharacterInput">
-                    <label>Name Of Character:</label>
-                    <input
-                        type="text"
-                        name="nameOfCharacter"
-                        value={nameOfCharacter}
-                        onChange={(e) => setNameOfCharacter(e.target.value)}
-                    />
-                </div>
+                <div className="formInput">
+                    <div className="singleLineInput">
+                        <label>Name Of Character:</label>
+                        <input
+                            type="text"
+                            name="nameOfCharacter"
+                            value={nameOfCharacter}
+                            onChange={(e) => setNameOfCharacter(e.target.value)}
+                        />
+                    </div>
 
-                <div className="originalCharacterInput">
-                    <label>Original Character:</label>
-                    <input
-                        type="file"
-                        accept="image/*"
-                        name="originalCharacter"
-                        onChange={(e) => setOriginalCharacter(e.target.files[0])}
-                    />
+                    <div className="singleLineInput">
+                        <label>Original Character:</label>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            name="originalCharacter"
+                            onChange={(e) => setOriginalCharacter(e.target.files[0])}
+                        />
+                    </div>
                 </div>
             </form>
-            
-            {translation &&  <TranslationAdd id={id}/>}
+
+            {translation && <TranslationAdd id={id} />}
         </div>
     )
 }

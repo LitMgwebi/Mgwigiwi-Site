@@ -43,7 +43,7 @@ function AddConcept() {
 
     return (
         <form onSubmit={handleSubmit} encType='multipart/form-data'>
-            <div className="section">
+            <div className="controls">
                 <p>{status}</p>
                 {error && <div className="error">{error}</div>}
                 <h1>Create</h1>
@@ -52,8 +52,8 @@ function AddConcept() {
                     <Link to="/portfolio/concept"><button>Cancel</button></Link>
                 </div>
             </div>
-            <div className="contentContainer">
-                <div className="titleInput">
+            <div className="formInput">
+                <div className="singleLineInput">
                     <label>Title:</label>
                     <input
                         type="text"
@@ -62,7 +62,7 @@ function AddConcept() {
                         onChange={(e) => setTitle(e.target.value)}
                     />
                 </div>
-                <div className="descriptionInput">
+                <div className="multilineInput">
                     <label>Description:</label>
                     <textarea
                         name="description"
@@ -70,7 +70,7 @@ function AddConcept() {
                         onChange={(e) => setDescription(e.target.value)}
                     />
                 </div>
-                <div className="photosInput">
+                <div className="photoInput">
                     <label>Photos:</label>
                     <input
                         type="file"

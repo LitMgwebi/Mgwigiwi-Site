@@ -8,7 +8,7 @@ function AnimationCard({ payload }) {
                 to={`/portfolio/animation/${payload._id}`}
                 state={{stateId: payload._id}}
             >
-                <CardHeader title={payload.title}/>
+                <CardHeader className="cardHeader" title={payload.title}/>
                 <CardMedia
                     component="video"
                     alt={payload.title}

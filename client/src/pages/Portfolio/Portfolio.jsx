@@ -9,11 +9,11 @@ function Portfolio() {
     const [flip, setFlip] = useState(false);
     const handleClick = () => setFlip(!flip);
     return (
-        <div className="portfolio">
+        <div id="Menu">
             <ReactCardFlip isFlipped={flip} flipDirection="vertical">
                 <div>
                     <ProjectHeader header="Portfolio" link="/" />
-                    <div className="ContentContainer">
+                    <div className="cardContainer">
                         <FlipCard
                             handleFlip={handleClick}
                             contentHeader="Digital Projects"

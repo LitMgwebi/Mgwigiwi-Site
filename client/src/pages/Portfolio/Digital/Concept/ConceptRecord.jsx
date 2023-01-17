@@ -38,8 +38,8 @@ function ConceptRecord() {
     }
 
     return (
-        <div className="conceptRecord">
-            <div className="section">
+        <div id="Record">
+            <div className="controls">
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
 
@@ -52,7 +52,7 @@ function ConceptRecord() {
                 </div>
             </div>
 
-            <div className="information">
+            <div className="inf">
                 <h2>{payload.title}</h2>
                 <p>{payload.description}</p>
                 <Swiper
@@ -64,7 +64,7 @@ function ConceptRecord() {
                     scrollbar={{ draggable: true }}
                 >
                     {photos.map(photo => (
-                        <SwiperSlide className="characterDesignImage">
+                        <SwiperSlide className="slider">
                             <img src={photo} alt={payload.title} />
                         </SwiperSlide>
                     ))}

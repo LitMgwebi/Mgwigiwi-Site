@@ -1,8 +1,9 @@
-import { Card, CardContent, CardMedia, CardActionArea} from "@material-ui/core";
+import { Card, CardContent, CardMedia, CardHeader, CardActionArea } from "@material-ui/core";
 
 const FlipCard = ({ handleFlip, contentHeader, imgLink, tagLine }) => {
     return (
         <Card className="card">
+            <CardHeader className="cardHeader" title={contentHeader} />
             <CardMedia
                 component="img"
                 alt={contentHeader}
@@ -10,11 +11,10 @@ const FlipCard = ({ handleFlip, contentHeader, imgLink, tagLine }) => {
                 className="cardMedia"
             />
             <CardContent className='cardContent'>
-                <h3 className="cardHeader">{contentHeader}</h3>
                 <p className="cardTagLine">{tagLine}</p>
 
-                <CardActionArea>
-                    <button className="cardButton" onClick={ handleFlip }>
+                <CardActionArea className="cardActionArea">
+                    <button className="cardButton" onClick={handleFlip}>
                         Flip
                     </button>
                 </CardActionArea>

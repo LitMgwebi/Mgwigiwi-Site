@@ -8,21 +8,21 @@ function BackgroundIndex() {
     const { payloads, isPending, error } = GetAll("background");
 
     return (
-        <div>
-            <div>
+        <div id="Index">
+            <div >
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
                 <ProjectHeader header="Background Art" link="/portfolio"/>
             </div>
 
 
-            <div className="cardForm">
+            <div className="createCard">
             <Card className="createCard">
                     <AddBackground />
                 </Card>
             </div>
 
-            <div className="contentContainer">
+            <div className="information">
                 {payloads && payloads.map((payload, i) => {
                     return (
                         <BackgroundCard payload={payload} />
