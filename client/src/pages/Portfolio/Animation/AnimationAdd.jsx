@@ -67,6 +67,7 @@ function AnimationAdd() {
                         type="text"
                         name="title"
                         value={title}
+                        required
                         onChange={(e) => setTitle(e.target.value)}
                     />
                 </div>
@@ -76,6 +77,7 @@ function AnimationAdd() {
                         type="file"
                         accept="image/*"
                         name="preview"
+                        required
                         onChange={(e) => setPreview(e.target.files[0])}
                     />
                 </div>
@@ -84,6 +86,7 @@ function AnimationAdd() {
                     <textarea
                         name="description"
                         value={description}
+                        required
                         onChange={(e) => setDescription(e.target.value)}
                     />
                 </div>
@@ -91,6 +94,7 @@ function AnimationAdd() {
                     <label>Movements:</label>
                     <input
                         type="file"
+                        required
                         name="movements"
                         accept="image/*"
                         onChange={(e) => { setMovements(e.target.files) }}
@@ -102,6 +106,7 @@ function AnimationAdd() {
                     <input
                         type="file"
                         name="backgrounds"
+                        required
                         accept="image/*"
                         onChange={(e) => { setBackgrounds(e.target.files) }}
                         multiple
@@ -112,6 +117,7 @@ function AnimationAdd() {
                     <input
                         type="file"
                         name="effects"
+                        required
                         accept="image/*"
                         onChange={(e) => { setEffects(e.target.files) }}
                         multiple

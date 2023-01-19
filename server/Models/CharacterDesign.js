@@ -7,6 +7,7 @@ const characterDesignSchema = new Schema({
     },
     originalCharacter: {
         type: String,
+        // required: [true, "Please enter the origin of the character: "]
     },
     public_id: {
         type: String,

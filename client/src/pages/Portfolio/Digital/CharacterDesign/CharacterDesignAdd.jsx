@@ -8,7 +8,7 @@ function CharacterDesignAdd() {
     const [status, setStatus] = useState(null);
     const [nameOfCharacter, setNameOfCharacter] = useState("");
     const [originalCharacter, setOriginalCharacter] = useState("");
-    const [translation, setTranslation] = useState(false);
+    const [showButton, setShowButton] = useState(false);
     const [id, setId] = useState(null);
 
     function handleSubmit(e) {
@@ -30,10 +30,9 @@ function CharacterDesignAdd() {
         }).then((res) => {
             setError(null);
             setStatus(res.data.message)
-            console.log(res.data.characterDesign)
 
             setId(res.data.characterDesign._id)
-            setTranslation(true)
+            setShowButton(true)
         }).catch((error) => {
             console.error(error.response.data.error);
             setError(error.response.data.error);
@@ -47,10 +46,10 @@ function CharacterDesignAdd() {
                     <p>{status}</p>
                     {error && <div className="error">{error}</div>}
                     <h1>Create</h1>
-                    <div className="button-group">
+                   { !showButton && <div className="button-group">
                         <button type="submit" className="btn btn-primary">Submit</button>
                         <Link to="/portfolio/character-design"><button>Cancel</button></Link>
-                    </div>
+                    </div>}
                 </div>
 
                 <div className="formInput">
@@ -61,6 +60,7 @@ function CharacterDesignAdd() {
                             name="nameOfCharacter"
                             value={nameOfCharacter}
                             onChange={(e) => setNameOfCharacter(e.target.value)}
+                            required
                         />
                     </div>
 
@@ -71,12 +71,13 @@ function CharacterDesignAdd() {
                             accept="image/*"
                             name="originalCharacter"
                             onChange={(e) => setOriginalCharacter(e.target.files[0])}
+                            required
                         />
                     </div>
                 </div>
             </form>
 
-            {translation && <TranslationAdd id={id} />}
+            {showButton && <TranslationAdd id={id} />}
         </div>
     )
 }

@@ -39,20 +39,13 @@ function AddBackground() {
     }
     return (
         <form onSubmit={handleSubmit} encType='multipart/form-data'>
-            <div className="controls">
-                <h3>Add Background art</h3>
-                {error && <div className="error">{error}</div>}
-                <div className="button-group">
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                    <Link to="/"><button>Cancel</button></Link>
-                </div>
-            </div>
-
-            <div className="formInput">
+            <h3>Add</h3>
+            <div className="cardForm">
                 <div className="singleLineInput">
                     <label>Title:</label>
                     <input
                         type="text"
+                        required
                         name="title"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
@@ -65,9 +58,20 @@ function AddBackground() {
                         accept="image/*"
                         name="photo"
                         onChange={(e) => setPhoto(e.target.files[0])}
+                        required
                     />
                 </div>
             </div>
+            <div className="controls">
+
+                {error && <div className="error">{error}</div>}
+                <div className="button-group">
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <Link to="/"><button>Cancel</button></Link>
+                </div>
+            </div>
+
+
         </form>
     )
 }

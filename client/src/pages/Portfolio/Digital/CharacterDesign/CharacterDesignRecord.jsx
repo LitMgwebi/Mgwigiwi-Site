@@ -36,10 +36,10 @@ function CharacterDesignRecord() {
     return (
         <div id="Record">
             <div className="control">
+                <h2>{payload.nameOfCharacter}</h2>
+
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
-
-                <h2>{payload.nameOfCharacter}</h2>
 
                 <div className="button-group">
                     <Link to="/portfolio/character-design/"><button>Back</button></Link>
@@ -53,11 +53,13 @@ function CharacterDesignRecord() {
                 <img src={payload.originalCharacter} alt={payload.nameOfCharacter} />
             </div>
 
-            {payloads && payloads.map((payload, i) => {
-                return (
-                    <TranslationIndex payload={payload} />
-                );
-            })}
+            <div className="translations">
+                {payloads && payloads.map((payload, i) => {
+                    return (
+                        <TranslationIndex payload={payload} />
+                    );
+                })}
+            </div>
         </div>
     )
 }

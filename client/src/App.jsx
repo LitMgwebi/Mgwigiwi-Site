@@ -29,27 +29,25 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <div id="Routes">
-          <Routes>
-            <Route path="/" element={<Home />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/portfolio/fine-art" element={<FineArtIndex />} />
-            <Route path="/portfolio/background" element={<BackgroundIndex />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/portfolio/fine-art" element={<FineArtIndex />} />
+          <Route path="/portfolio/background" element={<BackgroundIndex />} />
 
-            <Route path="/portfolio/concept" element={<ConceptIndex />} />
-            <Route path="/portfolio/concept/add" element={<ConceptAdd />} />
-            <Route path="/portfolio/concept/:id" element={<ConceptRecord />} />
+          <Route path="/portfolio/concept" element={<ConceptIndex />} />
+          <Route path="/portfolio/concept/add" element={<ConceptAdd />} />
+          <Route path="/portfolio/concept/:id" element={<ConceptRecord />} />
 
-            <Route path="/portfolio/character-design" element={<CharacterDesignIndex />} />
-            <Route path="/portfolio/character-design/add" element={<CharacterDesignAdd />} />
-            <Route path="/portfolio/character-design/:id" element={<CharacterDesignRecord />} />
+          <Route path="/portfolio/character-design" element={<CharacterDesignIndex />} />
+          <Route path="/portfolio/character-design/add" element={<CharacterDesignAdd />} />
+          <Route path="/portfolio/character-design/:id" element={<CharacterDesignRecord />} />
 
-            <Route path="/portfolio/animation" element={<AnimationIndex />} />
-            <Route path="/portfolio/animation/add" element={<AnimationAdd />} />
-            <Route path="/portfolio/animation/:id" element={<AnimationRecord />} />
-          </Routes>
-        </div>
+          <Route path="/portfolio/animation" element={<AnimationIndex />} />
+          <Route path="/portfolio/animation/add" element={<AnimationAdd />} />
+          <Route path="/portfolio/animation/:id" element={<AnimationRecord />} />
+        </Routes>
         <Footer />
       </BrowserRouter>
     </div>

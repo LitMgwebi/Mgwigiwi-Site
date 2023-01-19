@@ -16,7 +16,15 @@ router.get('/', async (req, res) => {
     let fineArt = null;
 
     try {
-        fineArt = await FineArt.find({});
+        const landscape = await FineArt.find({physicalType: 'Landscape'}).exec();
+        const portrait = await FineArt.find({physicalType: 'Portrait'}).exec();
+        const other = await FineArt.find({physicalType: 'Other'}).exec();
+
+        fineArt = {
+            landscape: landscape,
+            portrait: portrait,
+            other: other
+        }
         res.status(201).send({
             fineArt: fineArt,
             error: null,

@@ -60,6 +60,7 @@ function AddConcept() {
                         name="title"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
+                        required
                     />
                 </div>
                 <div className="multilineInput">
@@ -68,6 +69,7 @@ function AddConcept() {
                         name="description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
+                        required
                     />
                 </div>
                 <div className="photoInput">
@@ -78,6 +80,7 @@ function AddConcept() {
                         accept="image/*"
                         onChange={(e) => { setPhotos(e.target.files) }}
                         multiple
+                        required
                     />
                 </div>
             </div>

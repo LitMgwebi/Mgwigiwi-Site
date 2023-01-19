@@ -10,24 +10,23 @@ function BackgroundIndex() {
     return (
         <div id="Index">
             <div >
+                <ProjectHeader header="Background Art" link="/portfolio" />
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
-                <ProjectHeader header="Background Art" link="/portfolio"/>
             </div>
 
 
-            <div className="createCard">
             <Card className="createCard">
-                    <AddBackground />
-                </Card>
-            </div>
+                <AddBackground />
+            </Card>
 
             <div className="information">
-                {payloads && payloads.map((payload, i) => {
-                    return (
-                        <BackgroundCard payload={payload} />
-                    );
-                })}
+                {payloads === null ? <div className="information">Whole lot of nothing</div>
+                    : payloads.map((payload, i) => {
+                        return (
+                            <BackgroundCard payload={payload} />
+                        );
+                    })}
             </div>
         </div>
     )

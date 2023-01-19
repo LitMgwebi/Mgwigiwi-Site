@@ -39,7 +39,7 @@ function TranslationIndex({payload}){
                 </div>
             </div>
 
-            <div className="information">
+            <div className="translationInformation">
                 <p>{payload.description}</p>
                 <Slider photos={process} title="process Image"/>
             </div>

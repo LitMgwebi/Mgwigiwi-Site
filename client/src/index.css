@@ -15,8 +15,9 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
+  overflow-y: auto;
 }
 #Header {
   position: sticky;
@@ -28,18 +29,23 @@ code {
   grid-template-columns: 50% 50%;
   align-items: center;
 }
-#Routes{
-  overflow-y: auto;
+/* #Routes{
   padding: 2rem 0;
   width: 100vw;
   height: 100vh; 
-}
+} */
 #ProjectHeader{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: aquamarine;
+}
+#Index{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 .cardContainer{
   width: 70rem;
@@ -56,10 +62,18 @@ code {
   background-color: grey;
   padding: 1em 1em;
 }
+
+
+/*  
+* Cards
+*/
 .card{
   width: 14rem;
   height: 20rem;
   margin: 0 1.5rem;
+}
+.cardHeader{
+  margin: 0
 }
 .cardMedia{
   height: 65%;
@@ -74,14 +88,35 @@ code {
 .cardTagLine{
   margin: 0.1rem;
 }
-/* .cardHeader{
-  margin: 0.2rem;
-} */
+
+/*
+Adding Cards (Background and Fine Art)
+*/
+.createCard{
+  width: 20rem;
+  margin: 0.5rem;
+  display: flex;
+  align-items: center;
+  height: auto;
+  padding: 1rem;
+  justify-content: center;
+}
+.cardForm input, textarea, select{
+  padding: 0.3rem;
+  margin: 0.5rem 0.5rem 1rem;
+  width: 18rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+
+
 .information{
-  width: 65rem;
-  margin: 0rem auto;
-  max-height: 28rem;
-  min-height: 23rem;
+  width: 100%;
+  margin: 2rem;
+  max-height: 20rem;
+  min-height: 15rem;
   /* align-items: center; */
   overflow: auto;
   height: auto;
@@ -89,6 +124,32 @@ code {
   justify-content: center;
   flex-flow: row wrap;
   text-align: center;
+  background-color: grey;
+  padding: 1.4em 1.4em;
+}
+
+.translations{
+  display: flex;
+  flex-flow: row wrap;
+  background-color: blue;
+}
+.translationIndex{
+  width: 49%;
+  border: 1px solid
+}
+.translationInformation{
+  width: 30rem;
+  margin: 0rem auto;
+  max-height: 20rem;
+  /* min-height: 23rem; */
+  /* align-items: center; */
+  overflow: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  text-align: center;
+  margin: 2rem;
   background-color: grey;
   padding: 1.4em 1.4em;
 }
@@ -102,8 +163,10 @@ code {
 }
 
 #Footer {
-  position: relative;
+  position:sticky;
   width: 100%;
+  /* bottom: 0 ; */
+  margin-top: 2rem;
   min-height: 4rem;
   background-color: grey;
 }
