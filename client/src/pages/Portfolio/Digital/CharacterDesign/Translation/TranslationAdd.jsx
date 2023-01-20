@@ -40,39 +40,41 @@ function TranslationAdd({ id }) {
         });
     }
     return (
-        <form onSubmit={handleSubmit} encType='multipart/form-data'>
-            <div className="controls">
-                <p>{status}</p>
-                {error && <div className="error">{error}</div>}
-                <h1>Create</h1>
-                <div className="button-group">
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                    {showButton && <Link to="/portfolio/character-design"><button>Finish</button></Link>}
+        <div id="Translation">
+            <form onSubmit={handleSubmit} encType='multipart/form-data'>
+                <h2 id="ProjectHeader">Add Translation</h2>
+                <div className="formInput">
+                    <div className="multilineInput">
+                        <label>Description:</label>
+                        <textarea
+                            name="description"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="photoInput">
+                        <label>Process:</label>
+                        <input
+                            type="file"
+                            name="process"
+                            accept="image/*"
+                            onChange={(e) => { setProcess(e.target.files) }}
+                            required
+                            multiple
+                        />
+                    </div>
                 </div>
-            </div>
-            <div className="formInput">
-                <div className="multilineInput">
-                    <label>Description:</label>
-                    <textarea
-                        name="description"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        required
-                    />
+                <div className="controls">
+                    <p className="status">{status}</p>
+                    {error && <div className="error">{error}</div>}
+                    <div className="button-group">
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                        {showButton && <Link to="/portfolio/character-design"><button>Finish</button></Link>}
+                    </div>
                 </div>
-                <div className="photoInput">
-                    <label>Process:</label>
-                    <input
-                        type="file"
-                        name="process"
-                        accept="image/*"
-                        onChange={(e) => { setProcess(e.target.files) }}
-                        required
-                        multiple
-                    />
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     )
 }
 

@@ -7,13 +7,13 @@ function AnimationIndex(){
     const {payloads, isPending, error} = GetAll("animation")
     return(
         <div id="Index">
-            <div className="controls">
+            <div className="section">
+                <ProjectHeader header="Animation Art" link="/portfolio" />
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
-                <div>
+                <div className="addButton">
                     <button><Link to="/portfolio/animation/add">Add</Link></button>
                 </div>
-                <ProjectHeader header="Animation Art" link="/portfolio" />
             </div>
             <div className="information">
                 {payloads && payloads.map((payload, i) => {

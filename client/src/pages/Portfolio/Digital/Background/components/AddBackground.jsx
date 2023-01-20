@@ -41,7 +41,7 @@ function AddBackground() {
         <form onSubmit={handleSubmit} encType='multipart/form-data'>
             <h3>Add</h3>
             <div className="cardForm">
-                <div className="singleLineInput">
+                <div>
                     <label>Title:</label>
                     <input
                         type="text"
@@ -51,7 +51,7 @@ function AddBackground() {
                         onChange={(e) => setTitle(e.target.value)}
                     />
                 </div>
-                <div className="photoInput">
+                <div>
                     <label>Piece:</label>
                     <input
                         type="file"

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ProjectHeader from '../../../components/ProjectHeader';
 
 function AnimationAdd() {
     const [title, setTitle] = useState("");
@@ -50,16 +51,7 @@ function AnimationAdd() {
     }
     return (
         <form onSubmit={handleSubmit} encType='multipart/form-data'>
-            <div className="section">
-                <p>{status}</p>
-                {error && <div className="error">{error}</div>}
-                <h1>Create</h1>
-                <div className="button-group">
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                    <Link to="/portfolio/concept"><button>Cancel</button></Link>
-                </div>
-            </div>
-
+            <ProjectHeader header="Add Animation" link="/portfolio/animation" />
             <div className="formInput">
                 <div className="singleLineInput">
                     <label>Title:</label>
@@ -122,6 +114,14 @@ function AnimationAdd() {
                         onChange={(e) => { setEffects(e.target.files) }}
                         multiple
                     />
+                </div>
+            </div>
+            <div className="controls">
+                <p>{status}</p>
+                {error && <div className="error">{error}</div>}
+                <div className="button-group">
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <Link to="/portfolio/concept"><button>Cancel</button></Link>
                 </div>
             </div>
         </form>

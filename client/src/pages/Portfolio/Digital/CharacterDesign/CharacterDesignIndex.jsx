@@ -8,13 +8,13 @@ function CharacterDesignIndex(){
 
     return (
         <div id="Index">
-            <div className="controls">
+            <div className="section">
+                <ProjectHeader header="Character Design" link="/portfolio" />
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
-                <div>
+                <div className="addButton">
                     <button><Link to="/portfolio/character-design/add">Add</Link></button>
                 </div>
-                <ProjectHeader header="Character Design" link="/portfolio" />
             </div>
             <div className="information">
                 {payloads && payloads.map((payload, i) => {

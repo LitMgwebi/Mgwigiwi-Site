@@ -51,7 +51,7 @@ function AddFineArt() {
             <h3>Add Fine art</h3>
 
             <div className="cardForm">
-                <div className="singleLineInput">
+                <div>
                     <label>Title:</label>
                     <input
                         type="text"
@@ -62,7 +62,7 @@ function AddFineArt() {
                     />
                 </div>
 
-                <div className="selectInput">
+                <div>
                     <label>Type:</label>
                     <select
                         name="physicalType"
@@ -77,7 +77,7 @@ function AddFineArt() {
                     </select>
                 </div>
 
-                <div className="singleLineInput">
+                <div>
                     <label>Dimension:</label>
                     <input
                         type="text"
@@ -88,7 +88,7 @@ function AddFineArt() {
                     />
                 </div>
 
-                <div className="multilineInput">
+                <div>
                     <label>Description:</label>
                     <textarea
                         name="description"
@@ -98,7 +98,7 @@ function AddFineArt() {
                     />
                 </div>
 
-                <div className="photoInput">
+                <div>
                     <label>Piece:</label>
                     <input
                         type="file"

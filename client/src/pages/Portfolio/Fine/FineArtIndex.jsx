@@ -6,21 +6,18 @@ import ProjectHeader from "../../../components/ProjectHeader";
 
 function OutputPayload({ payloads }) {
     const { landscape, portrait, other } = payloads
-    console.log(landscape)
-    console.log(portrait)
-    console.log(other)
     return (
-        <div>
+        <div className="outputPayload">
             <div className="information">
-                {landscape ? <div>Whole lotta nothing</div> : landscape.map((landscape) => {
+                {Object.keys(landscape).length > 0 ? landscape.map((landscape) => {
                     return (
                         <FineArtCard payload={landscape} />
                     );
-                })}
+                }) : <div>Whole lotta nothing</div>}
             </div>
 
             <div className="information">
-                {portrait && portrait.map((portrait) => {
+                {Object.keys(portrait).length && portrait.map((portrait) => {
                     return (
                         <FineArtCard payload={portrait} />
                     )
@@ -29,11 +26,11 @@ function OutputPayload({ payloads }) {
 
 
             <div className="information">
-                {other != null ? <div>Whole lotta nothing</div> : other.map((other) => {
+                {Object.keys(other).length > 0 ? other.map((other) => {
                     return (
                         <FineArtCard payload={other} />
                     )
-                })}
+                }) : <div>Whole lotta nothing</div>}
             </div>
         </div>
     );
@@ -49,12 +46,12 @@ function FineArtIndex() {
                 <ProjectHeader header="Fine Art" link="/portfolio" />
             </div>
 
+            {payloads === null ? <div className="information">Whole lot of nothing</div>
+                : <OutputPayload payloads={payloads} />}
+
             <Card className="createCard">
                 <AddFineArt />
             </Card>
-
-            {payloads === null ? <div className="information">Whole lot of nothing</div>
-                : <OutputPayload payloads={payloads} />}
         </div>
     )
 }

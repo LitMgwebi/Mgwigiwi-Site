@@ -8,13 +8,13 @@ function ConceptIndex() {
 
     return (
         <div id="Index">
-            <div className="controls">
+            <div className="section">
+                <ProjectHeader header="Concept Art" link="/portfolio" />
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
-                <div>
-                    <button><Link to="/portfolio/concept/add">Add</Link></button>
+                <div className="addButton">
+                    <button><Link to="/portfolio/concept/add">+</Link></button>
                 </div>
-                <ProjectHeader header="Concept Art" link="/portfolio" />
             </div>
             <div className="information">
                 {payloads && payloads.map((payload, i) => {

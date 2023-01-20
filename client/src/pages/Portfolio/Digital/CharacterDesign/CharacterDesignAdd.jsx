@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import TranslationAdd from "./Translation/TranslationAdd";
+import ProjectHeader from "../../../../components/ProjectHeader";
 
 function CharacterDesignAdd() {
     const [error, setError] = useState(null);
@@ -42,15 +43,7 @@ function CharacterDesignAdd() {
     return (
         <div id="characterDesign">
             <form onSubmit={handleSubmit} encType='multipart/form-data'>
-                <div className="section">
-                    <p>{status}</p>
-                    {error && <div className="error">{error}</div>}
-                    <h1>Create</h1>
-                   { !showButton && <div className="button-group">
-                        <button type="submit" className="btn btn-primary">Submit</button>
-                        <Link to="/portfolio/character-design"><button>Cancel</button></Link>
-                    </div>}
-                </div>
+            <ProjectHeader header="Add Character Design" link="/portfolio/animation" />
 
                 <div className="formInput">
                     <div className="singleLineInput">
@@ -74,6 +67,14 @@ function CharacterDesignAdd() {
                             required
                         />
                     </div>
+                </div>
+                <div className="controls">
+                    <p>{status}</p>
+                    {error && <div className="error">{error}</div>}
+                   { !showButton && <div className="button-group">
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <Link to="/portfolio/character-design"><button>Cancel</button></Link>
+                    </div>}
                 </div>
             </form>
 

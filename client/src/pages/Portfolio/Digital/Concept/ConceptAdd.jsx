@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ProjectHeader from "../../../../components/ProjectHeader";
 
 function AddConcept() {
     const [photos, setPhotos] = useState("");
@@ -43,15 +44,8 @@ function AddConcept() {
 
     return (
         <form onSubmit={handleSubmit} encType='multipart/form-data'>
-            <div className="controls">
-                <p>{status}</p>
-                {error && <div className="error">{error}</div>}
-                <h1>Create</h1>
-                <div className="button-group">
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                    <Link to="/portfolio/concept"><button>Cancel</button></Link>
-                </div>
-            </div>
+            <ProjectHeader header="Add Concept" link="/portfolio/concept" />
+        
             <div className="formInput">
                 <div className="singleLineInput">
                     <label>Title:</label>
@@ -82,6 +76,14 @@ function AddConcept() {
                         multiple
                         required
                     />
+                </div>
+            </div>
+            <div className="controls">
+                <p>{status}</p>
+                {error && <div className="error">{error}</div>}
+                <div className="button-group">
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <Link to="/portfolio/concept"><button>Cancel</button></Link>
                 </div>
             </div>
         </form>

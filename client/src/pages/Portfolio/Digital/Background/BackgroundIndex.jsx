@@ -15,11 +15,6 @@ function BackgroundIndex() {
                 {isPending && <div>Loading...</div>}
             </div>
 
-
-            <Card className="createCard">
-                <AddBackground />
-            </Card>
-
             <div className="information">
                 {payloads === null ? <div className="information">Whole lot of nothing</div>
                     : payloads.map((payload, i) => {
@@ -28,6 +23,11 @@ function BackgroundIndex() {
                         );
                     })}
             </div>
+
+            <Card className="createCard">
+                <AddBackground />
+            </Card>
+
         </div>
     )
 }
