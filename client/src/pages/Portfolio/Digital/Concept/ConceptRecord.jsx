@@ -39,7 +39,7 @@ function ConceptRecord() {
 
     return (
         <div id="Record">
-            <div className="controls">
+            <div className="section">
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
 

@@ -35,7 +35,7 @@ function CharacterDesignRecord() {
 
     return (
         <div id="Record">
-            <div className="control">
+            <div className="section">
                 <h2>{payload.nameOfCharacter}</h2>
 
                 {error && <div className="error">{error}</div>}

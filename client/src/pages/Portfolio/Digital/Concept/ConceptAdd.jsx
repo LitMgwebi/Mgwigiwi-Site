@@ -79,7 +79,7 @@ function AddConcept() {
                 </div>
             </div>
             <div className="controls">
-                <p>{status}</p>
+                <p className="status">{status}</p>
                 {error && <div className="error">{error}</div>}
                 <div className="button-group">
                     <button type="submit" className="btn btn-primary">Submit</button>
