@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom"
 
+
+
 function ProjectHeader({ header, link }) {
     return (
         <div id="ProjectHeader">
             <div>
             {link !== "home" ?
-                <Link to={link}>
+                <Link 
+                    to={link}
+                    state={{fromDigital: true}}
+                >
                     Back
                 </Link>
                 : <div></div>}
@@ -14,8 +19,10 @@ function ProjectHeader({ header, link }) {
                 <h1>{header}</h1>
             </div>
             <div>
+                {link !== "home" ?
+                
                 <Link to="/">
-                Home</Link>
+                Home</Link>: <div></div>}
             </div>
 
         </div>

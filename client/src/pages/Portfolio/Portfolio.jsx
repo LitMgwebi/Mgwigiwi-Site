@@ -3,10 +3,20 @@ import ProjectHeader from "../../components/ProjectHeader";
 import { useState } from "react";
 import FlipCard from "../../components/FlipCard";
 import ReactCardFlip from "react-card-flip";
+import { useLocation } from "react-router";
 import Digital from "./Digital/Digital";
+import { useEffect } from "react";
 
 function Portfolio() {
     const [flip, setFlip] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+        if(location.state){
+            setFlip(true)
+        }
+    }, [location])
+
     const handleClick = () => setFlip(!flip);
     return (
         <div id="Menu">
@@ -34,7 +44,7 @@ function Portfolio() {
                         />
                     </div>
                 </div>
-                <div>
+                <div id="Digital">
                     <Digital handleFlip={handleClick} />
                 </div>
             </ReactCardFlip>
