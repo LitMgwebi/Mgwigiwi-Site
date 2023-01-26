@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom"
 
-function ProjectHeader({ header, link }) {
+function DigitalHeader({ header, link }) {
     return (
         <div id="ProjectHeader">
             <div>
             {link !== "home" ?
                 <Link 
                     to={link}
+                    state={{fromDigital: true}}
                 >
                     Back
                 </Link>
@@ -26,4 +27,4 @@ function ProjectHeader({ header, link }) {
     );
 }
 
-export default ProjectHeader;
+export default DigitalHeader;

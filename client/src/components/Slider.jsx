@@ -16,7 +16,7 @@ function Slider({ photos, title }) {
             scrollbar={{ draggable: true }}
         >
             {photos.map(photo => (
-                <SwiperSlide className="characterDesignImage">
+                <SwiperSlide className="swiperSlide">
                     <img src={photo} alt={title} />
                 </SwiperSlide>
             ))}

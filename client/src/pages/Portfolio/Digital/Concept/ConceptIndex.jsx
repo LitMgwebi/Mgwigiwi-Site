@@ -1,7 +1,7 @@
 import { GetAll } from "../../../../hooks/useGet";
 import ConceptCard from "./components/ConceptCard";
-import ProjectHeader from "../../../../components/ProjectHeader";
 import { Link } from "react-router-dom";
+import DigitalHeader from "../../../../components/DigitalHeader";
 
 function ConceptIndex() {
     const { payloads, isPending, error } = GetAll("concept");
@@ -9,7 +9,7 @@ function ConceptIndex() {
     return (
         <div id="Index">
             <div className="section">
-                <ProjectHeader header="Concept Art" link="/portfolio" />
+                <DigitalHeader header="Concept Art" link="/portfolio" />
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
                 <div className="addButton">

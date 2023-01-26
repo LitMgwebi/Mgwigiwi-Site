@@ -36,7 +36,7 @@ function CharacterDesignRecord() {
     return (
         <div id="Record">
             <div className="section">
-                <h2>{payload.nameOfCharacter}</h2>
+                <h2 id="ProjectHeader">{payload.nameOfCharacter}</h2>
 
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
@@ -52,7 +52,9 @@ function CharacterDesignRecord() {
             <div className="information">
                 <img src={payload.originalCharacter} alt={payload.nameOfCharacter} />
             </div>
+            
 
+            <h3 className="ProjectHeader">Translations</h3>
             <div className="translations">
                 {payloads && payloads.map((payload, i) => {
                     return (

@@ -26,21 +26,18 @@ function Portfolio() {
                     <div className="cardContainer">
                         <FlipCard
                             handleFlip={handleClick}
-                            contentHeader="Digital Projects"
+                            contentHeader="Digital"
                             imgLink={require("../../media/digital-drawing.png")}
-                            tagLine="This is a Digital"
                         />
                         <LinkCard
                             routeLink="fine-art"
                             contentHeader="Fine Art"
                             imgLink={require("../../media/fine-art.png")}
-                            tagLine="This is fine art"
                         />
                         <LinkCard
                             routeLink="animation"
                             contentHeader="Animation"
                             imgLink={require("../../media/animation.png")}
-                            tagLine=""
                         />
                     </div>
                 </div>

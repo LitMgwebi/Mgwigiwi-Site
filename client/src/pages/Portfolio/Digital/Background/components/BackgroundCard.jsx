@@ -1,8 +1,8 @@
-import { Card, CardMedia, CardHeader, CardActionArea } from "@material-ui/core";
+import { Card, CardMedia } from "@material-ui/core";
 import axios from "axios";
 import { useState } from "react";
 
-function BackgroundCard({ payload }) {
+function BackgroundCard({ payload, refreshPage}) {
     const [error, setError] = useState(null);
     const [isPending, setIsPending] = useState(null);
 
@@ -26,23 +26,23 @@ function BackgroundCard({ payload }) {
             setIsPending(false);
             setError(error.response.data.error);
         });
-        window.location.reload(false)
+        refreshPage();
     }
 
     return (
-        <Card className="card">
-            <CardHeader className="cardHeader" title={payload.title} />
+        <Card className="backgroundCard" onClick={handleConfirm}>
             <CardMedia
                 component="img"
                 alt={payload.title}
                 image={payload.photo}
                 className="cardMedia"
             />
-            <CardActionArea className="cardActionArea">
-                <button onClick={handleConfirm}>Delete</button>
+
+            <div className="cardHeader">
+                <h4>{payload.title}</h4>
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
-            </CardActionArea>
+            </div>
         </Card>
     )
 }

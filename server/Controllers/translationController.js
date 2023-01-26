@@ -24,14 +24,14 @@ router.get('/', async(req, res) => {
         res.status(200).send({
             translation: translation,
             error: null,
-            message: "Record retrival successful"
+            message: "Translations retrieved successfully"
         });
     }catch(error){
         log.error(error);
         res.status(404).send({
             translation: translation,
             error: error.message,
-            message: "Record retrival failed"
+            message: "Translations retrival failed"
         });
     }
 });
@@ -67,7 +67,7 @@ router.post('/add', upload.array("process"), async(req, res) => {
         res.status(201).send({
             translation: translation,
             error: null,
-            message: "New record was created"
+            message: "New translation was added successfully"
         });
     }catch(error){
         for(let i = 0; i < public_ids.length; i++){
@@ -78,7 +78,7 @@ router.post('/add', upload.array("process"), async(req, res) => {
         res.status(400).send({
             translation: translation,
             error: error.message,
-            message: "Could not add new record"
+            message: "Could not add new translation"
         });
     }
 });
@@ -95,12 +95,16 @@ router.delete("/:id", async function(req, res) {
         }
         
         await translation.remove();
+
+        res.status(201).send({
+            message: "Translation deleted successfully"
+        })
     } catch (error) {
         log.error(error.message)
         res.status(400).send({
             translation: translation,
             error: error.message,
-            message: "Record retrieval failed"
+            message: "Could not delete translation"
         });
     }
 })

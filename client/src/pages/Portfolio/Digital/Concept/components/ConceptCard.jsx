@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardMedia } from "@material-ui/core";
+import { Card, CardMedia } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 function ConceptCard({ payload }) {
@@ -6,9 +6,11 @@ function ConceptCard({ payload }) {
         <Card className="card">
             <Link
                 to={`/portfolio/concept/${payload._id}`}
-                state={{stateId: payload._id}}
+                state={{ stateId: payload._id }}
             >
-                <CardHeader className="cardHeader" title={payload.title}/>
+                <div className="cardHeader">
+                    <h3>{payload.title}</h3>
+                </div>
                 <CardMedia
                     component="img"
                     alt={payload.title}

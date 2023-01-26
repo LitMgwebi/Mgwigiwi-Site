@@ -1,12 +1,11 @@
 import axios from "axios"
-const { useEffect, useState } = require("react");
+import { useEffect, useState } from "react";
 
 //#region GET ALL
 const GetAll = (dest) => {
     const [payloads, setPayloads] = useState(null);
     const [error, setError] = useState(null);
     const [isPending, setIsPending] = useState(true);
-
     useEffect(() => {
         axios({
             method: "GET",
