@@ -97,7 +97,8 @@ router.delete("/:id", async function(req, res) {
         await translation.remove();
 
         res.status(201).send({
-            message: "Translation deleted successfully"
+            error: null,
+            message: "Translation deleted successfully",
         })
     } catch (error) {
         log.error(error.message)

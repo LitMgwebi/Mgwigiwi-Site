@@ -20,42 +20,19 @@ router.get('/', async (req, res) => {
         res.status(201).send({
             background: background,
             error: null,
-            message: "Record retrieval successful"
+            message: "Backgrounds retrieved successful"
         });
     }catch(error){
         log.error(error.message);
         res.status(400).send({
             background: background,
             error: error.message,
-            message: "Record retrieval failed"
+            message: "Backgrounds retrieval failed"
         })
     }
-})
+});
 //#endregion
 
-//#region GET One
-// router.get('/:id', async(req, res)=> {
-//     let background = null;
-//     try {
-//         background = await Background.findById(req.params.id);
-
-//         res.status(201).send({
-//             background: background,
-//             error: null,
-//             message: "Record retrieval successful"
-//         });
-//     } catch (error) {
-//         log.error(error.message)
-//         res.status(400).send({
-//             background: background,
-//             error: error.message,
-//             message: "Record retrieval failed"
-//         });
-//     }  
-// });
-//#endregion
-
-//#endregion
 
 //#region POST
 router.post('/add', upload.single("photo"), async(req, res) => {
@@ -74,14 +51,14 @@ router.post('/add', upload.single("photo"), async(req, res) => {
         res.status(201).send({
             background: background,
             error: null,
-            message: "New record was created"
+            message: "New background piece was added successfully"
         });
     }catch(error){
         log.error(err.message);
         res.status(400).send({
             background: background,
             error: err.message,
-            message: "Could not add new record"
+            message: "Could not add new background piece"
         });
     }
 });
@@ -95,12 +72,17 @@ router.delete('/:id', async(req, res) =>{
         const publicId = background.public_id;
         await removeFromCloudinary(publicId)
         await background.remove();
+
+        res.status(201).send({
+            error: null,
+            message: "Background piece deleted successfully",
+        });
     } catch (error) {
         log.error(error.message)
         res.status(400).send({
             background: background,
             error: error.message,
-            message: "Record retrieval failed"
+            message: "Could not delete background piece"
         });
     }
 });

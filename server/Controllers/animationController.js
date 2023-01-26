@@ -21,14 +21,14 @@ router.get('/', async (req, res) => {
         res.status(200).send({
             animation: animation,
             error: null,
-            message: "Record retrieval successful"
+            message: "Animations retrieved successfully"
         });
     } catch (error) {
         log.error(error.message);
         res.status(400).send({
             animation: animation,
             error: error.message,
-            message: "Record retrieval failed"
+            message: "Animations retrieval failed"
         });
     }
 });
@@ -44,14 +44,14 @@ router.get("/:id", async (req, res) => {
         res.status(201).send({
             animation: animation,
             error: null,
-            message: "Record retrieval successful"
+            message: "Animation retrieval successful"
         });
     } catch (error) {
         log.error(error.message)
         res.status(400).send({
             animation: animation,
             error: error.message,
-            message: "Record retrieval failed"
+            message: "Animation retrieval failed"
         });
     }
 });
@@ -97,14 +97,14 @@ router.post("/add", upload.fields([
         res.status(201).send({
             animation: animation,
             error: null,
-            message: "New animation added",
+            message: "New animation was added successfully",
         });
     } catch (error) {
         log.error(error);
         res.status(400).send({
             animation: animation,
             error: error.message,
-            message: "Could not add new record"
+            message: "Could not add new animation"
         });
     }
 });
@@ -122,6 +122,11 @@ router.delete("/:id", async function(req, res) {
         deletePublicIds(animation.effects_public_ids);
 
         await animation.remove();
+
+        res.status(201).send({
+            error: null,
+            message: "Amimation deleted successfully",
+        });
     }catch (error) {
         log.error(error);
         res.status(404).send({

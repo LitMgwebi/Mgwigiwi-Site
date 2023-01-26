@@ -6,31 +6,36 @@ const GetAll = (dest) => {
     const [payloads, setPayloads] = useState(null);
     const [error, setError] = useState(null);
     const [isPending, setIsPending] = useState(true);
+    const [status, setStatus] = useState(null);
+
     useEffect(() => {
         axios({
             method: "GET",
             url: `http://localhost:1500/${dest}/`
         }).then((res) => {
+            setError(null);
             if (res.data) {
-                setPayloads(res.data[dest])
-                setError(null);
+                setPayloads(res.data[dest]);
+                setStatus(res.data.message);
             } else {
-                setError("There are no entries in the database")
+                setStatus("There are no entries in the database")
             }
             setIsPending(false);
         }).catch((error) => {
             setIsPending(false);
-            setError(error.response.data.error);
+            setError(error.message);
+            setStatus(error.response.data.error);
         });
     }, [dest]);
 
-    return { payloads, error, isPending, setIsPending, setError }
+    return { payloads, error, isPending, status, setIsPending, setError, setStatus}
 }
 
 const GetAllTranslation = (id) => {
     const [payloads, setPayloads] = useState(null);
     const [error, setError] = useState(null);
     const [isPending, setIsPending] = useState(true);
+    const [status, setStatus] = useState(null);
 
     useEffect(() => {
         axios({
@@ -40,20 +45,22 @@ const GetAllTranslation = (id) => {
                 characterDesign: id
             }
         }).then((res) => {
+            setError(null);
             if (res.data) {
                 setPayloads(res.data.translation)
-                setError(null);
+                setStatus(res.data.message);
             } else {
                 setError("There are no entries in the database")
             }
             setIsPending(false);
         }).catch((error) => {
             setIsPending(false);
-            setError(error.response.data.error);
+            setStatus(error.response.data.error);
+            setError(error.message);
         });
     }, [id]);
 
-    return { payloads, error, isPending, setIsPending, setError }
+    return { payloads, error, isPending, status, setIsPending, setError, setStatus}
 }
 //#endregion
 
@@ -67,6 +74,7 @@ const GetOneConcept = (id) => {
     });
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
+    const [status, setStatus] = useState(null);
 
     useEffect(() => {
         axios({
@@ -84,12 +92,14 @@ const GetOneConcept = (id) => {
             }));
             setIsPending(false);
             setError(null);
+            setStatus(res.data.message);
         }).catch((error) => {
             setIsPending(false);
-            setError(error.response.data.error);
+            setStatus(error.response.data.error);
+            setError(error.message);
         })
     }, [id]);
-    return { payload, isPending, error, setIsPending, setError }
+    return { payload, isPending, error, status, setStatus, setIsPending, setError }
 }
 
 const GetOneCharacterDesign = (id) => {
@@ -99,6 +109,7 @@ const GetOneCharacterDesign = (id) => {
     });
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
+    const [status, setStatus] = useState(null);
 
     useEffect(() => {
         axios({
@@ -114,15 +125,17 @@ const GetOneCharacterDesign = (id) => {
                 ...payload,
                 ...update
             }));
+            setStatus(res.data.message);
             setIsPending(false);
             setError(null);
         }).catch((error) => {
             setIsPending(false);
-            setError(error.response.data.error)
+            setStatus(error.response.data.error)
+            setError(error.message);
         })
     }, [id]);
 
-    return { payload, isPending, error, setIsPending, setError }
+    return { payload, isPending, error, status, setStatus, setIsPending, setError }
 }
 
 const GetOneAnimation = (id) => {
@@ -136,6 +149,7 @@ const GetOneAnimation = (id) => {
     });
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
+    const [status, setStatus] = useState(null);
 
     useEffect(() => {
         axios({
@@ -156,13 +170,15 @@ const GetOneAnimation = (id) => {
             }));
             setIsPending(false);
             setError(null);
+            setStatus(res.data.message);
         }).catch((error) => {
             setIsPending(false);
-            setError(error);
+            setError(error.message);
+            setStatus(error.response.data.error);
         })
     }, [id]);
 
-    return {payload, isPending, error, setIsPending, setError};
+    return {payload, isPending, error, status, setStatus, setIsPending, setError};
 }
 //#endregion
 

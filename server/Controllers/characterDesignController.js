@@ -22,14 +22,14 @@ router.get('/', async (req, res) => {
         res.status(200).send({
             characterDesign: cd,
             error: null,
-            message: "Record retrival successful"
+            message: "Character designs retrived successfully"
         });
     }catch(error){
         log.error(error);
         res.status(404).send({
             characterDesign: cd,
             error: error.message,
-            message: "Record retrival failed"
+            message: "Character designs retrival failed"
         });
     }
 });
@@ -45,14 +45,14 @@ router.get('/:id', async (req, res) => {
         res.status(201).send({
             characterDesign: cd,
             error: null,
-            message: "Record retrieval successful"
+            message: "Character design retrieval successful"
         });
     } catch (error) {
         log.error(error.message)
         res.status(400).send({
             characterDesign: cd,
             error: error.message,
-            message: "Record retrieval failed"
+            message: "Character design retrieval failed"
         });
     }
 });
@@ -76,14 +76,14 @@ router.post('/add', upload.single('originalCharacter'), async (req, res) => {
         res.status(201).send({
             characterDesign: cd,
             error: null,
-            message: "New character was created"
+            message: "New character design was successfully added"
         });
     } catch (error) {
         log.error(error);
         res.status(400).send({
             characterDesign: cd,
             error: error.message,
-            message: "Could not add new record"
+            message: "Could not add new character design"
         });
     }
 })
@@ -101,12 +101,17 @@ router.delete('/:id', async (req, res) => {
         const publicId = cd.public_id;
         await removeFromCloudinary(publicId);
         await cd.remove();
+
+        res.status(201).send({
+            error: null,
+            message: "Character design deleted successfully",
+        });
     } catch (error) {
         log.error(error.message)
         res.status(400).send({
             characterDesign: cd,
             error: error.message,
-            message: "Record delete failed"
+            message: "Could not delete character design"
         });
     }
 });

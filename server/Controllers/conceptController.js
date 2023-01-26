@@ -21,14 +21,14 @@ router.get("/", async (req, res) => {
         res.status(201).send({
             concept: concept,
             error: null,
-            message: "Record retrieval successful"
+            message: "Concept retrieved successfully"
         });
     } catch (error) {
         log.error(error.message);
         res.status(400).send({
             concept: concept,
             error: error.message,
-            message: "Record retrieval failed"
+            message: "Concept retrieval failed"
         });
     }
 });
@@ -43,14 +43,14 @@ router.get("/:id", async (req, res) => {
         res.status(201).send({
             concept: concept,
             error: null,
-            message: "Record retrieval successful"
+            message: "Concept piece retrieval successful"
         });
     } catch (error) {
         log.error(error.message)
         res.status(400).send({
             concept: concept,
             error: error.message,
-            message: "Record retrieval failed"
+            message: "Concept piece retrieval failed"
         });
     }
 })
@@ -86,14 +86,14 @@ router.post('/add', upload.array("photos"), async (req, res) => {
         res.status(201).send({
             concept: concept,
             error: null,
-            message: "New record was created"
+            message: "New concept piece was successfully added"
         });
     } catch (error) {
         log.error(error);
         res.status(400).send({
             concept: concept,
             error: error.message,
-            message: "Could not add new record"
+            message: "Could not add new concept piece"
         });
     }
 });
@@ -110,12 +110,16 @@ router.delete('/:id', async (req, res) => {
         }
 
         await concept.remove();
+        res.status(201).send({
+            error: null,
+            message: "Concept piece deleted successfully",
+        })
     } catch (error) {
         log.error(error.message)
         res.status(400).send({
             concept: concept,
             error: error.message,
-            message: "Record retrieval failed"
+            message: "Could not delete concept piece"
         });
     }
 });
