@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function BackgroundCard({ payload, refreshPage}) {
     const [error, setError] = useState(null);
-    const [isPending, setIsPending] = useState(null);
+    const [isPending, setIsPending] = useState(true);
 
     const handleConfirm = () => {
         if (window.confirm("Are you sure you want to delete"))
@@ -21,6 +21,7 @@ function BackgroundCard({ payload, refreshPage}) {
         }).then((res) => {
             setIsPending(false);
             setError(null);
+            payload = null;
         }).catch((error) => {
             console.error(error.message);
             setIsPending(false);

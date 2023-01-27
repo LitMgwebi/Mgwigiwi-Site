@@ -42,8 +42,8 @@ function CharacterDesignRecord() {
                 {isPending && <div>Loading...</div>}
 
                 <div className="button-group">
-                    <Link to="/portfolio/character-design/"><button>Back</button></Link>
-                    <button onClick={handleConfirm}>
+                    <Link to="/portfolio/character-design/"><button className="btn btn-secondary">Back</button></Link>
+                    <button onClick={handleConfirm} className="btn btn-danger">
                         Delete
                     </button>
                 </div>

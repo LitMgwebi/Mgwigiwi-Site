@@ -83,7 +83,7 @@ function AddConcept() {
                 {error && <div className="error">{error}</div>}
                 <div className="button-group">
                     <button type="submit" className="btn btn-primary">Submit</button>
-                    <Link to="/portfolio/concept"><button>Cancel</button></Link>
+                    <Link to="/portfolio/concept"><button className="btn btn-secondary">Cancel</button></Link>
                 </div>
             </div>
         </form>

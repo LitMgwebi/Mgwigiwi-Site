@@ -38,10 +38,10 @@ function FineArtCardFlipped({ payload, flipCard }) {
             <p>{payload.dimension}</p>
 
             <div className="button-group">
-                <button onClick={flipCard} className="flipButton">
+                <button onClick={flipCard} className="btn btn-secondary">
                     Flip
                 </button>
-                <button onClick={handleConfirm}>
+                <button onClick={handleConfirm} className="btn btn-danger">
                     Delete
                 </button>
             </div>

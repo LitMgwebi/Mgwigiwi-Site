@@ -73,7 +73,7 @@ function CharacterDesignAdd() {
                     {error && <div className="error">{error}</div>}
                    { !showButton && <div className="button-group">
                         <button type="submit" className="btn btn-primary">Submit</button>
-                        <Link to="/portfolio/character-design"><button>Cancel</button></Link>
+                        <Link to="/portfolio/character-design"><button className="btn btn-danger">Cancel</button></Link>
                     </div>}
                 </div>
             </form>

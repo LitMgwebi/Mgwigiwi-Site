@@ -4,19 +4,20 @@ import ProjectHeader from "../../../components/ProjectHeader";
 import { Link } from "react-router-dom";
 
 function AnimationIndex(){
-    const {payloads, isPending, error} = GetAll("animation")
+    const {payloads, isPending, status} = GetAll("animation")
     return(
         <div id="Index">
             <div className="section">
                 <ProjectHeader header="Animation Art" link="/portfolio" />
-                {error && <div className="error">{error}</div>}
+                {status && <div className="error">{status}</div>}
                 {isPending && <div>Loading...</div>}
                 <div className="addButton">
-                    <button><Link to="/portfolio/animation/add">Add</Link></button>
+                    <button className="btn btn-light"><Link to="/portfolio/animation/add">+</Link></button>
                 </div>
             </div>
             <div className="information">
-                {payloads && payloads.map((payload, i) => {
+                {payloads === null ? <div className="information">Whole lot of nothing</div>
+                    : payloads.map((payload, i) => {
                     return (
                         <AnimationCard payload={payload} />
                     );

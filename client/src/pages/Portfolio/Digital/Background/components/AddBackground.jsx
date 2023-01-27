@@ -67,7 +67,7 @@ function AddBackground() {
                 {error && <div className="error">{error}</div>}
                 <div className="button-group">
                     <button type="submit" className="btn btn-primary">Submit</button>
-                    <Link to="/"><button>Cancel</button></Link>
+                    <Link to="/"><button className="btn btn-secondary">Cancel</button></Link>
                 </div>
             </div>
 

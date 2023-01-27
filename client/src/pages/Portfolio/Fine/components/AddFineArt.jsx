@@ -14,13 +14,6 @@ function AddFineArt() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        // const formData = new FormData();
-        // formData.append('title', title);
-        // formData.append('physicalType', physicalType);
-        // formData.append('dimension', dimension);
-        // formData.append('description', description);
-        // formData.append('photo', photo);
-
         const data = {
             title: title,
             physicalType: physicalType,
@@ -113,7 +106,7 @@ function AddFineArt() {
                 {error && <div className="error">{error}</div>}
                 <div className="button-group">
                     <button type="submit" className="btn btn-primary">Submit</button>
-                    <Link to="/"><button>Cancel</button></Link>
+                    <Link to="/"><button className="btn btn-secondary">Cancel</button></Link>
                 </div>
             </div>
         </form>

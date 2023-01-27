@@ -4,18 +4,18 @@ import { useLocation } from "react-router";
 import axios from "axios";
 import { GetOneAnimation } from "../../../hooks/useGet";
 
-function AnimationRecord(){
+function AnimationRecord() {
     const location = useLocation();
     const navigate = useNavigate();
     const id = location.state.stateId;
-    
+
     const { payload, isPending, error, setIsPending, setError } = GetOneAnimation(id);
-    
+
     const handleConfirm = () => {
         if (window.confirm("Are you sure you want to delete"))
             handleDelete();
     }
-    
+
     function handleDelete() {
         axios({
             method: "DELETE",
@@ -30,7 +30,7 @@ function AnimationRecord(){
             setError(error.response.data.error);
         });
     }
-    return(
+    return (
         <div id="Record">
             <div className="controls">
                 {error && <div className="error">{error}</div>}
@@ -38,8 +38,8 @@ function AnimationRecord(){
 
 
                 <div className="button-group">
-                    <Link to="/portfolio/animation/"><button>Back</button></Link>
-                    <button onClick={handleConfirm}>
+                    <button className="btn btn-secondary"><Link to="/portfolio/animation/">Back</Link></button>
+                    <button onClick={handleConfirm} className="btn btn-danger">
                         Delete
                     </button>
                 </div>
@@ -48,7 +48,7 @@ function AnimationRecord(){
                 <h2>{payload.title}</h2>
                 <p>{payload.description}</p>
                 <img src={payload.preview} alt={payload.title} />
-                <AnimationTemplate payload={payload}/>
+                <AnimationTemplate payload={payload} />
             </div>
         </div>
     )

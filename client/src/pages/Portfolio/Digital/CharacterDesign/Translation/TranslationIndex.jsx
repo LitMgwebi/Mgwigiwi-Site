@@ -32,8 +32,7 @@ function TranslationIndex({payload}){
 
 
                 <div className="button-group">
-                    {/* <Link to="/portfolio/concept/"><button>Back</button></Link> */}
-                    <button onClick={handleConfirm}>
+                    <button onClick={handleConfirm} className="btn btn-danger">
                         Delete
                     </button>
                 </div>

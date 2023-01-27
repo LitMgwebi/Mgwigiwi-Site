@@ -4,7 +4,7 @@ function Digital({ handleFlip }) {
     return (
         <div id="Menu">
             <div id="ProjectHeader">
-            <button className="flipButton" onClick={handleFlip}>
+            <button className="btn btn-link" onClick={handleFlip}>
                 Back
             </button>
             <h1>Digital Art</h1>

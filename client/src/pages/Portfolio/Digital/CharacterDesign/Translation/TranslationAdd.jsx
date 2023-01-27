@@ -70,7 +70,7 @@ function TranslationAdd({ id }) {
                     {error && <div className="error">{error}</div>}
                     <div className="button-group">
                         <button type="submit" className="btn btn-primary">Submit</button>
-                        {showButton && <Link to="/portfolio/character-design"><button>Finish</button></Link>}
+                        {showButton && <Link to="/portfolio/character-design"><button className="btn btn-secondary">Finish</button></Link>}
                     </div>
                 </div>
             </form>

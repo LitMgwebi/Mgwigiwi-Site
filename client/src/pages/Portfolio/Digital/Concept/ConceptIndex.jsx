@@ -13,11 +13,12 @@ function ConceptIndex() {
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
                 <div className="addButton">
-                    <button><Link to="/portfolio/concept/add">+</Link></button>
+                    <button className="btn btn-light"><Link to="/portfolio/concept/add">+</Link></button>
                 </div>
             </div>
             <div className="information">
-                {payloads && payloads.map((payload, i) => {
+                {payloads === null ? <div className="information">Whole lot of nothing</div>
+                    : payloads.map((payload, i) => {
                     return (
                         <ConceptCard payload={payload} />
                     );

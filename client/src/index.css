@@ -20,6 +20,30 @@ code {
   overflow-y: auto;
   text-align: center;
 }
+.status{
+  width: 100%;
+}
+.controls{
+  text-align: center;
+  height:auto;
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+.button-group{
+  display: flex;
+  flex-flow: row nowrap;
+  width: auto
+}
+.button-group button{
+  margin: 0 0.2rem
+}
+a{
+  color: black
+}
 #Header {
   position: relative;
   background-color: grey;
@@ -162,20 +186,6 @@ label{
 .multilineInput textarea{
   padding: 2rem;
 }
-.status{
-  width: 100%;
-}
-.controls{
-  text-align: center;
-  height: 5rem;
-  margin: auto;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
-  width: 40%;
-  background-color: antiquewhite;
-}
 
 /*
 Content and Index
@@ -246,6 +256,21 @@ Translation
   /* padding: 1.4em 1.4em; */
 }
 
+/*
+Concept
+*/
+.conceptDescription{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+.conceptSlider{
+  width: 50%;
+}
+.conceptSlider img{
+  width: 1%
+}
 
 /*
 Swiper Slider
@@ -253,11 +278,13 @@ Swiper Slider
 .swiperSlide{
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .swiperSlide img{
   width: 50%;
   margin: auto;
 }
+
 
 #Footer {
   position:relative;

@@ -121,7 +121,7 @@ function AnimationAdd() {
                 {error && <div className="error">{error}</div>}
                 <div className="button-group">
                     <button type="submit" className="btn btn-primary">Submit</button>
-                    <Link to="/portfolio/concept"><button>Cancel</button></Link>
+                    <button className='btn btn-secondary'><Link to="/portfolio/concept">Cancel</Link></button>
                 </div>
             </div>
         </form>
