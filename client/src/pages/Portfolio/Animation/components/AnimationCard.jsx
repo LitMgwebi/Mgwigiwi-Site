@@ -9,7 +9,7 @@ function AnimationCard({ payload }) {
                 state={{ stateId: payload._id }}
             >
                 <div className="cardHeader">
-                    {payload.title}
+                    <h4>{payload.title}</h4>
                 </div>
                 <CardMedia
                     component="video"

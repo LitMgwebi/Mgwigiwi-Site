@@ -13,7 +13,7 @@ function FineArtCard({ payload }) {
         <ReactCardFlip isFlipped={flip} flipDirection="vertical">
             <Card onClick={flipCard} className="card">
                 <div className="cardHeader">
-                    <h3>{payload.title}</h3>
+                    <h4>{payload.title}</h4>
                 </div>
                 <CardMedia
                     component="img"

@@ -10,7 +10,7 @@ function CDCard({ payload }) {
                 state={{ stateId: payload._id }}
             >
                 <div className="cardHeader">
-                    <h3>{payload.nameOfCharacter}</h3>
+                    <h4>{payload.nameOfCharacter}</h4>
                 </div>
                 <CardMedia
                     component="img"

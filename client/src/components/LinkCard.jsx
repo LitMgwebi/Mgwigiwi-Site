@@ -8,7 +8,7 @@ function LinkCard({ routeLink, contentHeader, imgLink }) {
                 to={routeLink}
             >
                 <div className="cardHeader">
-                    <h3>{contentHeader}</h3>
+                    <h4>{contentHeader}</h4>
                 </div>
                 <CardMedia
                     component="img"

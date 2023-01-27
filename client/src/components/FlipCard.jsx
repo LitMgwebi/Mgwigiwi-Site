@@ -5,7 +5,7 @@ const FlipCard = ({ handleFlip, contentHeader, imgLink }) => {
         <Card className="card" >
             <div onClick={handleFlip}>
                 <div className="cardHeader">
-                    <h3>{contentHeader}</h3>
+                    <h4>{contentHeader}</h4>
                 </div>
                 <CardMedia
                     component="img"

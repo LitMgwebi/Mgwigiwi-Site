@@ -9,7 +9,7 @@ function ConceptCard({ payload }) {
                 state={{ stateId: payload._id }}
             >
                 <div className="cardHeader">
-                    <h3>{payload.title}</h3>
+                    <h4>{payload.title}</h4>
                 </div>
                 <CardMedia
                     component="img"
