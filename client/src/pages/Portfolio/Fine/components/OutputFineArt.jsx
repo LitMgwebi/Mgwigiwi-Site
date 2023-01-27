@@ -4,33 +4,33 @@ function OutputFineArt({ payloads }) {
     const { landscape, portrait, other } = payloads
     return (
         <div className="outputPayload">
-            <h3 id="ProjectHeader">Landscape</h3>
+            <h4 id="ProjectHeader">Landscape</h4>
             <div className="information">
                 {Object.keys(landscape).length > 0 ? landscape.map((landscape) => {
                     return (
                         <FineArtCard payload={landscape} />
                     );
-                }) : <h3>Whole lotta nothing</h3>}
+                }) : <h4>Whole lotta nothing</h4>}
             </div>
 
-            <h3 id="ProjectHeader">Portrait</h3>
+            <h4 id="ProjectHeader">Portrait</h4>
             <div className="information">
                 {Object.keys(portrait).length > 0 ? portrait.map((portrait) => {
                     return (
                         <FineArtCard payload={portrait} />
                     )
-                }) : <div>Whole lotta nothing</div>}
+                }) : <h4>Whole lotta nothing</h4>}
             </div>
 
 
 
-            <h3 className="ProjectHeader">Other</h3>
+            <h4 className="ProjectHeader">Other</h4>
             <div className="information">
                 {Object.keys(other).length > 0 ? other.map((other) => {
                     return (
                         <FineArtCard payload={other} />
                     )
-                }) : <h3>Whole lotta nothing</h3>}
+                }) : <h4>Whole lotta nothing</h4>}
             </div>
         </div>
     );

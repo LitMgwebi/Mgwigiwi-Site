@@ -4,7 +4,7 @@ import { useState } from "react";
 function FineArtCardFlipped({ payload, flipCard }) {
     const [error, setError] = useState(null);
     const [isPending, setIsPending] = useState(null);
-    
+
     const handleConfirm = () => {
         if (window.confirm("Are you sure you want to delete"))
             handleDelete();
@@ -13,7 +13,7 @@ function FineArtCardFlipped({ payload, flipCard }) {
     function handleDelete() {
         axios({
             method: "DELETE",
-             url: `http://localhost:1500/fineArt/${payload._id}`,
+            url: `http://localhost:1500/fineArt/${payload._id}`,
             //  headers: {
             //       'Authorization': `Bearer ${user.token}`
             //  }
@@ -30,20 +30,27 @@ function FineArtCardFlipped({ payload, flipCard }) {
 
     return (
         <div className="fineArtFlipped">
-            {error && <div className="error">{error}</div>}
-            {isPending && <div>Loading...</div>}
+            <div  className='fineArtHeader'>
+                <h4>{payload.title}</h4>
+                </div>
+            <div className="fineArtInformation">
+                
+                <p>{payload.description}</p>
+                <p>{payload.dimension}</p>
+            </div>
 
-            <h4 className='cardHeader'>{payload.title}</h4>
-            <p>{payload.description}</p>
-            <p>{payload.dimension}</p>
+            <div className="controls">
 
-            <div className="button-group">
-                <button onClick={flipCard} className="btn btn-secondary">
-                    Flip
-                </button>
-                <button onClick={handleConfirm} className="btn btn-danger">
-                    Delete
-                </button>
+                {error && <div className="error">{error}</div>}
+                {isPending && <div>Loading...</div>}
+                <div className="button-group">
+                    <button onClick={flipCard} className="btn btn-secondary">
+                        Flip
+                    </button>
+                    <button onClick={handleConfirm} className="btn btn-danger">
+                        Delete
+                    </button>
+                </div>
             </div>
         </div>
     )

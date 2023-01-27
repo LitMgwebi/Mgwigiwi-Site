@@ -18,6 +18,10 @@ import ConceptRecord from "./pages/Portfolio/Digital/Concept/ConceptRecord";
 import AnimationIndex from "./pages/Portfolio/Animation/AnimationIndex";
 import AnimationAdd from "./pages/Portfolio/Animation/AnimationAdd";
 import AnimationRecord from "./pages/Portfolio/Animation/AnimationRecord";
+
+import Login from "./pages/Auth/Login";
+import Signup from "./pages/Auth/Signup";
+
 import {
   BrowserRouter,
   Routes,
@@ -31,6 +35,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+
+          <Route path="/login" element={<Login/>} />
+          <Route path="/signup" element={<Signup/>} />
 
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/portfolio/fine-art" element={<FineArtIndex />} />
