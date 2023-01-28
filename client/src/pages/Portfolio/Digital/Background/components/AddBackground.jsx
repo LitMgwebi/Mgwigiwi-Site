@@ -1,7 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-
 
 function AddBackground() {
     const [error, setError] = useState(null);
@@ -10,10 +8,6 @@ function AddBackground() {
 
     function handleSubmit(e) {
         e.preventDefault();
-
-        // const formData = new FormData();
-        // formData.append('title', title);
-        // formData.append('photo', photo);
 
         const data = {
             title: title,
@@ -36,6 +30,13 @@ function AddBackground() {
         });
 
         window.location.reload(false)
+    }
+
+    function handleCancel(e){
+        e.preventDefault();
+
+        setTitle("");
+        setPhoto("");
     }
     return (
         <form onSubmit={handleSubmit} encType='multipart/form-data'>
@@ -67,7 +68,7 @@ function AddBackground() {
                 {error && <div className="error">{error}</div>}
                 <div className="button-group">
                     <button type="submit" className="btn btn-primary">Submit</button>
-                    <Link to="/"><button className="btn btn-secondary">Cancel</button></Link>
+                    <button onClick={handleCancel} className="btn btn-secondary">Cancel</button>
                 </div>
             </div>
 

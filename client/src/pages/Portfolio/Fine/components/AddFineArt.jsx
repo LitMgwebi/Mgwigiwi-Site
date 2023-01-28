@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 function AddFineArt() {
     const [error, setError] = useState(null);
@@ -11,6 +10,15 @@ function AddFineArt() {
     const [description, setDescription] = useState("");
     const [photo, setPhoto] = useState("");
 
+    function handleCancel(e){
+        e.preventDefault();
+
+        setTitle("");
+        setPhysicalType("");
+        setDimension("");
+        setDescription("");
+        setPhoto("");
+    }
     function handleSubmit(e) {
         e.preventDefault();
 
@@ -106,7 +114,7 @@ function AddFineArt() {
                 {error && <div className="error">{error}</div>}
                 <div className="button-group">
                     <button type="submit" className="btn btn-primary">Submit</button>
-                    <Link to="/"><button className="btn btn-secondary">Cancel</button></Link>
+                    <button onClick={handleCancel} className="btn btn-secondary">Cancel</button>
                 </div>
             </div>
         </form>
