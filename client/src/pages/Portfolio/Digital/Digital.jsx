@@ -1,15 +1,22 @@
 import LinkCard from "../../../components/LinkCard";
+import { Link } from "react-router-dom";
 
 function Digital({ handleFlip }) {
     return (
         <div id="Menu">
             <div id="ProjectHeader">
-            <button className="btn btn-link" onClick={handleFlip}>
-                Back
-            </button>
-            <h1>Digital Art</h1>
+                <div className="button-group">
+                    <button className="btn btn-link" onClick={handleFlip}>
+                        Back
+                    </button>
+                </div>
+                <div><h1>Digital Art</h1></div>
+                <div>
+                    <Link to="/">
+                        Home</Link>
+                </div>
             </div>
-            <div className="cardContainer">
+            <div className="information">
                 <LinkCard
                     routeLink="concept"
                     contentHeader="Concept"

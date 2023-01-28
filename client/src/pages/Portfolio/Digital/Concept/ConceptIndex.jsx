@@ -12,7 +12,7 @@ function ConceptIndex() {
                 <DigitalHeader header="Concept Art" link="/portfolio" />
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
-                <div className="addButton">
+                <div className="button-group">
                     <button className="btn btn-light"><Link to="/portfolio/concept/add">+</Link></button>
                 </div>
             </div>

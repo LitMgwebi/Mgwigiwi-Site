@@ -15,8 +15,9 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  height: auto;
+  width: 100%;
+  background-color: yellow;
+  height: 100vh;
   overflow-y: auto;
   text-align: center;
 }
@@ -47,8 +48,8 @@ a{
 #Header {
   position: relative;
   background-color: grey;
-  top: 0;
-  height: 4rem;
+  /* top: 0; */
+  min-height: 4rem;
   margin-bottom: 2rem;
   width: 100%;
   display: inline-grid;
@@ -195,21 +196,16 @@ label{
 /*
 Content and Index
 */
-#Index{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+#Index, #Menu{
   contain: content;
   width: 100%;
 }
 .information{
   width: 100%;
-  margin: 3rem 0;
+  margin: 2.5rem 0;
   max-height: 30rem;
-  /* min-height: 15rem; */
-  /* align-items: center; */
+  min-height: 11.5rem;;
   overflow: auto;
-  height: auto;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
@@ -308,10 +304,9 @@ Swiper Slider
 
 
 #Footer {
-  position: sticky;
+  position: relative;
   width: 100%;
-  /* margin: 1rem 0 0; */
-  height: 4rem;
-  bottom: 0;
+  margin: 2rem 0 0;
+  min-height: 4rem;
   background-color: grey;
 }

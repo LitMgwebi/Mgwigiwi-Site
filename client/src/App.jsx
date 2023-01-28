@@ -31,8 +31,8 @@ import {
 function App() {
   return (
     <div className="App">
+    <Header />
       <BrowserRouter>
-        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
 
@@ -55,8 +55,8 @@ function App() {
           <Route path="/portfolio/animation/add" element={<AnimationAdd />} />
           <Route path="/portfolio/animation/:id" element={<AnimationRecord />} />
         </Routes>
-        <Footer />
       </BrowserRouter>
+        <Footer />
     </div>
   );
 }

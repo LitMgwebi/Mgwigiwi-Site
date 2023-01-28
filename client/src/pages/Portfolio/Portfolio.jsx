@@ -23,7 +23,7 @@ function Portfolio() {
             <ReactCardFlip isFlipped={flip} flipDirection="vertical">
                 <div>
                     <ProjectHeader header="Portfolio" link="/" />
-                    <div className="cardContainer">
+                    <div className="information">
                         <FlipCard
                             handleFlip={handleClick}
                             contentHeader="Digital"
