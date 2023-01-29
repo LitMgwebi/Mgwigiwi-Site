@@ -50,81 +50,83 @@ function AnimationAdd() {
         navigate("/portfolio/animation")
     }
     return (
-        <form onSubmit={handleSubmit} encType='multipart/form-data'>
+        <div id="Add">
             <ProjectHeader header="Add Animation" link="/portfolio/animation" />
-            <div className="formInput">
-                <div className="singleLineInput">
-                    <label>Title:</label>
-                    <input
-                        type="text"
-                        name="title"
-                        value={title}
-                        required
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
+            <form onSubmit={handleSubmit} encType='multipart/form-data'>
+                <div className="formInput">
+                    <div className="singleLineInput">
+                        <label>Title:</label>
+                        <input
+                            type="text"
+                            name="title"
+                            value={title}
+                            required
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
+                    </div>
+                    <div className="photoInput">
+                        <label>Preview:</label>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            name="preview"
+                            required
+                            onChange={(e) => setPreview(e.target.files[0])}
+                        />
+                    </div>
+                    <div className="multilineInput">
+                        <label>Description:</label>
+                        <textarea
+                            name="description"
+                            value={description}
+                            required
+                            onChange={(e) => setDescription(e.target.value)}
+                        />
+                    </div>
+                    <div className="photoInput">
+                        <label>Movements:</label>
+                        <input
+                            type="file"
+                            required
+                            name="movements"
+                            accept="image/*"
+                            onChange={(e) => { setMovements(e.target.files) }}
+                            multiple
+                        />
+                    </div>
+                    <div className="photoInput">
+                        <label>Backgrounds:</label>
+                        <input
+                            type="file"
+                            name="backgrounds"
+                            required
+                            accept="image/*"
+                            onChange={(e) => { setBackgrounds(e.target.files) }}
+                            multiple
+                        />
+                    </div>
+                    <div className="photoInput">
+                        <label>Effects:</label>
+                        <input
+                            type="file"
+                            name="effects"
+                            required
+                            accept="image/*"
+                            onChange={(e) => { setEffects(e.target.files) }}
+                            multiple
+                        />
+                    </div>
                 </div>
-                <div className="photoInput">
-                    <label>Preview:</label>
-                    <input
-                        type="file"
-                        accept="image/*"
-                        name="preview"
-                        required
-                        onChange={(e) => setPreview(e.target.files[0])}
-                    />
+                <div className="controls">
+                    <p>{status}</p>
+                    {error && <div className="error">{error}</div>}
+                    <div className="button-group">
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button className='btn btn-secondary'><Link to="/portfolio/concept">Cancel</Link></button>
+                    </div>
                 </div>
-                <div className="multilineInput">
-                    <label>Description:</label>
-                    <textarea
-                        name="description"
-                        value={description}
-                        required
-                        onChange={(e) => setDescription(e.target.value)}
-                    />
-                </div>
-                <div className="photoInput">
-                    <label>Movements:</label>
-                    <input
-                        type="file"
-                        required
-                        name="movements"
-                        accept="image/*"
-                        onChange={(e) => { setMovements(e.target.files) }}
-                        multiple
-                    />
-                </div>
-                <div className="photoInput">
-                    <label>Backgrounds:</label>
-                    <input
-                        type="file"
-                        name="backgrounds"
-                        required
-                        accept="image/*"
-                        onChange={(e) => { setBackgrounds(e.target.files) }}
-                        multiple
-                    />
-                </div>
-                <div className="photoInput">
-                    <label>Effects:</label>
-                    <input
-                        type="file"
-                        name="effects"
-                        required
-                        accept="image/*"
-                        onChange={(e) => { setEffects(e.target.files) }}
-                        multiple
-                    />
-                </div>
-            </div>
-            <div className="controls">
-                <p>{status}</p>
-                {error && <div className="error">{error}</div>}
-                <div className="button-group">
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                    <button className='btn btn-secondary'><Link to="/portfolio/concept">Cancel</Link></button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     )
 }
 

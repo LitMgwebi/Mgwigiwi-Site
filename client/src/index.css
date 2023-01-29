@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -21,12 +22,14 @@ code {
   overflow-y: auto;
   text-align: center;
 }
-.status{
+
+.status {
   width: 100%;
 }
-.controls{
+
+.controls {
   text-align: center;
-  height:auto;
+  height: auto;
   margin: auto;
   display: flex;
   flex-flow: row wrap;
@@ -34,17 +37,21 @@ code {
   justify-content: center;
   width: auto;
 }
-.button-group{
+
+.button-group {
   display: flex;
   flex-flow: row nowrap;
   width: auto
 }
-.button-group button{
+
+.button-group button {
   margin: 0 0.2rem
 }
-a{
+
+a {
   color: black
 }
+
 #Header {
   position: relative;
   background-color: grey;
@@ -56,17 +63,14 @@ a{
   grid-template-columns: 50% 50%;
   align-items: center;
 }
-#Record{
-  contain: content;
-  width: 100%;
-}
+
 
 
 
 /*
 Section Config
 */
-.section{
+.section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,12 +80,13 @@ Section Config
 /* 
 Project Header
 } */
-#ProjectHeader{
+#ProjectHeader {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
+
 #ProjectHeader div {
   width: 20rem;
   display: flex;
@@ -91,7 +96,7 @@ Project Header
 
 
 
-.cardContainer{
+.cardContainer {
   width: 70rem;
   margin: 1rem auto;
   /* max-height: 28rem; */
@@ -111,37 +116,45 @@ Project Header
 /*  
 * Cards
 */
-.card, .backgroundCard{
+.card,
+.backgroundCard {
   width: 14rem;
   height: 19rem;
   margin: 0 1.5rem;
 }
-.card:hover{
+
+.card:hover {
   background-color: aqua;
 }
-.cardHeader{
+
+.cardHeader {
   height: 25%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.cardMedia{
+
+.cardMedia {
   height: auto;
   padding: 5%;
 }
+
 /*
 Card Forms (Background and Fine Art)
 */
-.createCard{
+.createCard {
   width: 20rem;
-  /* margin: 0.5rem; */
+  margin: auto;
   display: flex;
   align-items: center;
   height: auto;
   padding: 1rem;
   justify-content: center;
 }
-.cardForm input, textarea, select{
+
+.cardForm input,
+textarea,
+select {
   padding: 0.3rem;
   margin: 0.5rem 0.5rem 1rem;
   width: 18rem;
@@ -153,10 +166,21 @@ Card Forms (Background and Fine Art)
 /*
 Page Forms
 */
-form{
+#Add {
+  height: 100%;
+}
+
+#Add form {
+  height: 100%;
+  width: 100%;
+  padding: 2rem 0 0;
+}
+
+form {
   width: 100%;
 }
-.formInput{
+
+.formInput {
   width: 80%;
   margin: 0 auto;
   display: flex;
@@ -166,7 +190,10 @@ form{
   padding: 1rem;
   justify-content: center;
 }
-.formInput input, textarea, select{
+
+.formInput input,
+textarea,
+select {
   padding: 0.5rem;
   margin: 0.5rem 0.5rem 1rem;
   width: 18rem;
@@ -174,20 +201,26 @@ form{
   border-radius: 5px;
   box-sizing: border-box;
 }
-.multilineInput, .singleLineInput, .photoInput{
+
+.multilineInput,
+.singleLineInput,
+.photoInput {
   display: inline-flex;
   align-items: center;
   width: 40%;
   margin: 0.1rem;
 }
-label{
+
+label {
   width: 25%;
-  text-align:center; 
+  text-align: center;
 }
-.multilineInput textarea{
+
+.multilineInput textarea {
   padding: 0.2rem;
 }
-.authForm{
+
+.authForm {
   /* background-color: blue; */
   padding: 2rem;
 }
@@ -196,15 +229,17 @@ label{
 /*
 Content and Index
 */
-#Index, #Menu{
+#Index,
+#Menu {
   contain: content;
   width: 100%;
 }
-.information{
+
+.information {
   width: 100%;
   margin: 2.5rem 0;
   max-height: 30rem;
-  min-height: 11.5rem;;
+  min-height: 11.5rem;
   overflow: auto;
   display: flex;
   justify-content: center;
@@ -213,7 +248,8 @@ Content and Index
   background-color: grey;
   padding: 1.4em 1.4em;
 }
-.addButton{
+
+.addButton {
   display: flex;
   justify-content: center
 }
@@ -222,16 +258,18 @@ Content and Index
 /*
 Fine Art
 */
-.outputPayload{
+.outputPayload {
   width: 100%;
 }
-.fineArtHeader{
+
+.fineArtHeader {
   height: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.fineArtInformation{
+
+.fineArtInformation {
   height: 50%;
   padding: 0.1rem;
   display: flex;
@@ -239,7 +277,8 @@ Fine Art
   align-content: space-between;
   /* background-color: blue; */
 }
-.fineArtFlipped{
+
+.fineArtFlipped {
   height: 100%;
 }
 
@@ -247,57 +286,70 @@ Fine Art
 /*
 Translation
 */
-#Translation{
-  margin: 2rem 0 0 ;
+#Record {
+  width: 100%;
 }
-.translations{
+
+.characterImage img {
+  width: 85%;
+}
+
+.translations {
   display: flex;
   flex-flow: row wrap;
+  height: auto;
+  width: 100%
 }
-.translationIndex{
-  width: 40%;
+
+.translationIndex {
+  width: 45%;
   border-radius: 0.5em;
   border: 1px solid;
   height: auto;
   contain: content;
   margin: auto;
 }
-.translationInformation{
-  /* width: 100%; */
+
+.translationInformation {
   height: 20rem;
   overflow: auto;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
-  /* background-color: grey; */
-  /* padding: 1.4em 1.4em; */
+}
+
+.translationSlider {
+  width: 100%;
 }
 
 /*
 Concept
 */
-.conceptDescription{
+.conceptDescription {
   width: 40%;
   display: flex;
   align-items: center;
   padding: 1rem;
 }
-.conceptSlider{
+
+.conceptSlider {
   width: 50%;
 }
-.conceptSlider img{
+
+.conceptSlider img {
   width: 1%
 }
 
 /*
 Swiper Slider
 */
-.swiperSlide{
+.swiperSlide {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.swiperSlide img{
+
+.swiperSlide img {
   width: 50%;
   margin: auto;
 }
@@ -307,6 +359,112 @@ Swiper Slider
   position: relative;
   width: 100%;
   margin: 2rem 0 0;
-  min-height: 4rem;
+  min-height: 3.8rem;
   background-color: grey;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .conceptDescription {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .information{
+    min-height: 20rem;
+  }
+  .conceptSlider {
+    width: 80%;
+  }
+
+  .card,
+  .backgroundCard {
+    width: 12rem;
+    height: 16rem;
+    margin: 1rem 1rem;
+  }
+
+  #ProjectHeader {
+    margin: 0 1rem
+  }
+
+  #ProjectHeader div {
+    width: auto;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .translations {
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  .translationIndex {
+    width: 70%;
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .translationInformation {
+    height: 13rem;
+  }
+
+  .createCard {
+    width: 18rem;
+  }
+
+  .cardForm input,
+  textarea,
+  select {
+    width: 15rem;
+
+  }
+  #Add form {
+    height: 90%;
+  }
+  .formInput {
+    width: 90%;
+    flex-flow: column nowrap;
+    contain: content;
+  }
+  
+  .formInput input,
+  textarea,
+  select {
+    width: 14rem;
+  }
+  
+  .multilineInput,
+  .singleLineInput,
+  .photoInput {
+    width: 100%;
+  }
+  
+  label {
+    width: 30%;
+    text-align: center;
+  }
+  
+  .multilineInput textarea {
+    padding: 0.2rem;
+  }
+  
+  .authForm {
+    /* background-color: blue; */
+    padding: 2rem;
+  }
+  
+  
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {}
+
+/* Small devices on landscape */
+@media only screen and (min-width: 769px) and (max-width: 992px) and (orientation: portrait) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 769px) and (max-width: 992px) and (orientation: landscape) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}

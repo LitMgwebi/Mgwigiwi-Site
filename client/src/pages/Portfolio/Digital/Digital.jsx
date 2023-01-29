@@ -12,8 +12,11 @@ function Digital({ handleFlip }) {
                 </div>
                 <div><h1>Digital Art</h1></div>
                 <div>
-                    <Link to="/">
-                        Home</Link>
+                    <button className="btn btn-link">
+                        <Link to="/">
+                            Home
+                        </Link>
+                    </button>
                 </div>
             </div>
             <div className="information">

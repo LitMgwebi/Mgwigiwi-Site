@@ -41,9 +41,10 @@ function CharacterDesignAdd() {
 
     }
     return (
-        <div id="characterDesign">
-            <form onSubmit={handleSubmit} encType='multipart/form-data'>
+        <div id="Add">
+
             <ProjectHeader header="Add Character Design" link="/portfolio/animation" />
+            <form onSubmit={handleSubmit} encType='multipart/form-data'>
 
                 <div className="formInput">
                     <div className="singleLineInput">
@@ -71,7 +72,7 @@ function CharacterDesignAdd() {
                 <div className="controls">
                     <p className="status">{status}</p>
                     {error && <div className="error">{error}</div>}
-                   { !showButton && <div className="button-group">
+                    {!showButton && <div className="button-group">
                         <button type="submit" className="btn btn-primary">Submit</button>
                         <Link to="/portfolio/character-design"><button className="btn btn-danger">Cancel</button></Link>
                     </div>}

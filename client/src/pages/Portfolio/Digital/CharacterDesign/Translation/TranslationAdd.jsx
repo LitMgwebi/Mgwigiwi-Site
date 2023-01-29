@@ -40,9 +40,10 @@ function TranslationAdd({ id }) {
         });
     }
     return (
-        <div id="Translation">
+        <div id="Add">
+
+            <h2 id="ProjectHeader">Add Translation</h2>
             <form onSubmit={handleSubmit} encType='multipart/form-data'>
-                <h2 id="ProjectHeader">Add Translation</h2>
                 <div className="formInput">
                     <div className="multilineInput">
                         <label>Description:</label>

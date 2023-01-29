@@ -50,11 +50,14 @@ function CharacterDesignRecord() {
             </div>
 
             <div className="information">
+                <div className="characterImage">
                 <img src={payload.originalCharacter} alt={payload.nameOfCharacter} />
+                </div>
             </div>
             
 
             <h3 className="ProjectHeader">Translations</h3>
+
             <div className="translations">
                 {payloads && payloads.map((payload, i) => {
                     return (

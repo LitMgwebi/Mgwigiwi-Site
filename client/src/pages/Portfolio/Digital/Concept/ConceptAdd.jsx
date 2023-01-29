@@ -43,50 +43,52 @@ function AddConcept() {
     }
 
     return (
-        <form onSubmit={handleSubmit} encType='multipart/form-data'>
+        <div id="Add">
             <ProjectHeader header="Add Concept" link="/portfolio/concept" />
-        
-            <div className="formInput">
-                <div className="singleLineInput">
-                    <label>Title:</label>
-                    <input
-                        type="text"
-                        name="title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        required
-                    />
+            <form onSubmit={handleSubmit} encType='multipart/form-data'>
+
+                <div className="formInput">
+                    <div className="singleLineInput">
+                        <label>Title:</label>
+                        <input
+                            type="text"
+                            name="title"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="multilineInput">
+                        <label>Description:</label>
+                        <textarea
+                            name="description"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="photoInput">
+                        <label>Photos:</label>
+                        <input
+                            type="file"
+                            name="photos"
+                            accept="image/*"
+                            onChange={(e) => { setPhotos(e.target.files) }}
+                            multiple
+                            required
+                        />
+                    </div>
                 </div>
-                <div className="multilineInput">
-                    <label>Description:</label>
-                    <textarea
-                        name="description"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        required
-                    />
+                <div className="controls">
+                    <p className="status">{status}</p>
+                    {error && <div className="error">{error}</div>}
+                    <div className="button-group">
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <Link to="/portfolio/concept"><button className="btn btn-secondary">Cancel</button></Link>
+                    </div>
                 </div>
-                <div className="photoInput">
-                    <label>Photos:</label>
-                    <input
-                        type="file"
-                        name="photos"
-                        accept="image/*"
-                        onChange={(e) => { setPhotos(e.target.files) }}
-                        multiple
-                        required
-                    />
-                </div>
-            </div>
-            <div className="controls">
-                <p className="status">{status}</p>
-                {error && <div className="error">{error}</div>}
-                <div className="button-group">
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                    <Link to="/portfolio/concept"><button className="btn btn-secondary">Cancel</button></Link>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     )
 }
 
