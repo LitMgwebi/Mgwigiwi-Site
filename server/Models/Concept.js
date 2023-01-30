@@ -1,4 +1,4 @@
-const { Schema, model} = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const conceptSchema = new Schema({
     title: {
@@ -11,14 +11,14 @@ const conceptSchema = new Schema({
     photos: {
         type: Array,
     },
-    //    user_id: {
-    //         type: String,
-    //         required: true,
-    //    },
+    user_id: {
+        type: String,
+        required: true,
+    },
     public_ids: {
         type: Array
     }
-},  { timestamps: true });
+}, { timestamps: true });
 
 const Concept = model('Concept', conceptSchema);
 

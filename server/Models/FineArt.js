@@ -18,10 +18,10 @@ const fineArtSchema = new Schema({
     photo: {
         type: String,
     },
-    //    user_id: {
-    //         type: String,
-    //         required: true,
-    //    },
+    user_id: {
+        type: String,
+        required: true,
+    },
     public_id: {
         type: String
     }

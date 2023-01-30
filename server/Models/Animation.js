@@ -1,4 +1,4 @@
-const {Schema, model} = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const animationSchema = new Schema({
     title: {
@@ -11,7 +11,7 @@ const animationSchema = new Schema({
     preview_public_id: {
         type: String,
     },
-    description: {  
+    description: {
         type: String,
     },
     movements: {
@@ -32,12 +32,12 @@ const animationSchema = new Schema({
     effects_public_ids: {
         type: Array,
     },
-    //    user_id: {
-    //         type: String,
-    //         required: true,
-    //    },
+    user_id: {
+        type: String,
+        required: true,
+    },
 });
 
 const Animation = model('Animation', animationSchema);
 
-module.exports= Animation;
+module.exports = Animation;

@@ -15,6 +15,10 @@ const translationSchema = new Schema({
         required: true,
         // ref: 'CharacterDesign'
     },
+    user_id: {
+        type: String,
+        required: true,
+    },
 }, {timestamps: true});
 
 const Translation = model("Translation", translationSchema);
