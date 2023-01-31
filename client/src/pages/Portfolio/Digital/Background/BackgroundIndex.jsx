@@ -14,15 +14,14 @@ function BackgroundIndex() {
         window.location.reload(false)
     }
     return (
-        <div id="Index">
-            <div >
+        <div id="BackgroundIndex">
+            <div className="section">
                 <DigitalHeader header="Background Art" link="/portfolio" />
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
             </div>
-
             <div className="information">
-                {payloads === null ? <div>Whole lot of nothing</div>
+                {payloads === null ? <div className="information">Whole lot of nothing</div>
                     : payloads.map((payload, i) => {
                         return (
                             <BackgroundCard payload={payload} refreshPage={refreshPage} />

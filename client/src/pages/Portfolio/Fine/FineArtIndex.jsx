@@ -11,7 +11,7 @@ function FineArtIndex() {
 
     return (
         <div id="Index">
-            <div>
+            <div className="section">
                 {error && <div className="error">{error}</div>}
                 {isPending && <div>Loading...</div>}
                 <ProjectHeader header="Fine Art" link="/portfolio" />

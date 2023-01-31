@@ -2,6 +2,7 @@ import FineArtCard from "./FineArtCard";
 
 function OutputFineArt({ payloads }) {
     const { landscape, portrait, other } = payloads
+    console.log(landscape)
     return (
         <div className="outputPayload">
             <h4 id="ProjectHeader">Landscape</h4>

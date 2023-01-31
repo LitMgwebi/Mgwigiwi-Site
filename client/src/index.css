@@ -1,3 +1,17 @@
+:root {
+  --backgroundColor: #1A1A2E;
+  --primaryColour: #16213E;
+  --secondaryColor: #0F3460;
+  --textColour: #E94560;
+  
+}
+[data-theme='dark'] {
+  --backgroundColor: #404258;
+  --primaryColour: #474E68;
+  --secondaryColor: #50577A;
+  --textColour: #6B728E;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -17,7 +31,6 @@ code {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: yellow;
   height: 100vh;
   overflow-y: auto;
   text-align: center;
@@ -250,6 +263,11 @@ Content and Index
 #Menu {
   contain: content;
   width: 100%;
+  height: auto;
+}
+#BackgroundIndex{
+  min-height: 68%;
+  width:100%
 }
 
 .information {
@@ -575,7 +593,107 @@ Swiper Slider
 }
 
 /* Small devices on landscape */
-@media only screen and (min-width: 769px) and (max-width: 992px) and (orientation: landscape) {}
+@media only screen and (min-width: 769px) and (max-width: 992px) and (orientation: landscape) {
+  #Header{
+    height: 5rem;
+    margin-bottom: 1rem;
+  }
+  #Footer{
+    display: sticky;
+    height: 4rem;
+    margin-top: 2rem;
+  }
+  .conceptDescription {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .information{
+    min-height: 10rem;
+  }
+  .conceptSlider {
+    width: 80%;
+  }
+
+  .card,
+  .backgroundCard {
+    width: 15rem;
+    height: 20rem;
+    margin: 1rem 1rem;
+  }
+
+
+  #ProjectHeader div {
+    width: auto;
+    padding: 1rem 3rem;
+    height: auto;
+  }
+
+  .translations {
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  .translationIndex {
+    width: 70%;
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .translationInformation {
+    height: 18rem;
+  }
+
+  .createCard {
+    width: 25rem;
+  }
+
+  .cardForm{
+    padding: 1rem;
+  }
+  
+  .cardForm input,
+  .cardForm textarea,
+  .cardForm select {
+    width: 20rem;
+
+  }
+  #Add form {
+    height: 90%;
+  }
+  .formInput {
+    width: 100%;
+    flex-flow: column nowrap;
+    contain: content;
+  }
+  
+  .formInput input,
+  textarea,
+  select {
+    width: 28rem;
+    margin: 1rem 0
+  }
+  
+  .multilineInput,
+  .singleLineInput,
+  .photoInput {
+    width: 100%;
+  }
+  
+  label {
+    width: 25%;
+    text-align: center;
+  }
+  
+  .multilineInput textarea {
+    padding: 0.2rem;
+  }
+  
+  .authForm {
+    /* background-color: blue; */
+    padding: 2rem;
+  }
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 769px) and (max-width: 992px) and (orientation: portrait) {
