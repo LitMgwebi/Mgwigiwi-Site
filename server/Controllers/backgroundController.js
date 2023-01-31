@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
 
 
 //#region POST
-router.post('/add', upload.single("photo"), async(req, res) => {
+router.post('/add', upload.single("photo"), requireAuth, async(req, res) => {
     let background = null;
     try{
         const data = await uploadToCloudinary(req.file.path, "background")
@@ -44,7 +44,7 @@ router.post('/add', upload.single("photo"), async(req, res) => {
             title: req.body.title,
             photo: data.url,
             public_id: data.public_id,
-            // user_id: req.user._id
+            user_id: req.user._id
         });
 
         await background.save();
@@ -65,7 +65,7 @@ router.post('/add', upload.single("photo"), async(req, res) => {
 //#endregion
 
 //#region DELETE /fine-art/:id
-router.delete('/:id', async(req, res) =>{
+router.delete('/:id', requireAuth, async(req, res) =>{
     let background = null
     try {
         background = await Background.findById(req.params.id);

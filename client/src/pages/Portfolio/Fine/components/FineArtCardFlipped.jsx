@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
+import { useAuthContext } from "../../../../hooks/useAuthContext";
 
 function FineArtCardFlipped({ payload, flipCard }) {
     const [error, setError] = useState(null);
     const [isPending, setIsPending] = useState(null);
+    const { user } = useAuthContext()
 
     const handleConfirm = () => {
         if (window.confirm("Are you sure you want to delete"))
@@ -14,9 +16,9 @@ function FineArtCardFlipped({ payload, flipCard }) {
         axios({
             method: "DELETE",
             url: `http://localhost:1500/fineArt/${payload._id}`,
-            //  headers: {
-            //       'Authorization': `Bearer ${user.token}`
-            //  }
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
         }).then((res) => {
             setIsPending(false);
             setError(null);
@@ -30,11 +32,11 @@ function FineArtCardFlipped({ payload, flipCard }) {
 
     return (
         <div className="fineArtFlipped">
-            <div  className='fineArtHeader'>
+            <div className='fineArtHeader'>
                 <h4>{payload.title}</h4>
-                </div>
+            </div>
             <div className="fineArtInformation">
-                
+
                 <p>{payload.description}</p>
                 <p>{payload.dimension}</p>
             </div>
@@ -47,9 +49,11 @@ function FineArtCardFlipped({ payload, flipCard }) {
                     <button onClick={flipCard} className="btn btn-secondary">
                         Flip
                     </button>
-                    <button onClick={handleConfirm} className="btn btn-danger">
-                        Delete
-                    </button>
+                    {user && (
+                        <button onClick={handleConfirm} className="btn btn-danger">
+                            Delete
+                        </button>
+                    )}
                 </div>
             </div>
         </div>

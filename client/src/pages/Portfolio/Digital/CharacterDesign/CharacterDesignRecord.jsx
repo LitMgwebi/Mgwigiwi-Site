@@ -3,10 +3,12 @@ import { useLocation } from "react-router";
 import axios from "axios";
 import { GetAllTranslation, GetOneCharacterDesign } from "../../../../hooks/useGet";
 import TranslationIndex from "./Translation/TranslationIndex";
+import { useAuthContext } from "../../../../hooks/useAuthContext";
 
 function CharacterDesignRecord() {
     const location = useLocation();
     const navigate = useNavigate();
+    const { user } = useAuthContext();
     const id = location.state.stateId;
 
     const { payload, isPending, error, setIsPending, setError } = GetOneCharacterDesign(id);
@@ -21,7 +23,10 @@ function CharacterDesignRecord() {
     function handleDelete() {
         axios({
             method: "DELETE",
-            url: `http://localhost:1500/characterDesign/${id}`
+            url: `http://localhost:1500/characterDesign/${id}`,
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
         }).then((res) => {
             setIsPending(false);
             setError(null);
@@ -43,18 +48,20 @@ function CharacterDesignRecord() {
 
                 <div className="button-group">
                     <Link to="/portfolio/character-design/"><button className="btn btn-secondary">Back</button></Link>
-                    <button onClick={handleConfirm} className="btn btn-danger">
-                        Delete
-                    </button>
+                    {user && (
+                        <button onClick={handleConfirm} className="btn btn-danger">
+                            Delete
+                        </button>
+                    )}
                 </div>
             </div>
 
             <div className="information">
                 <div className="characterImage">
-                <img src={payload.originalCharacter} alt={payload.nameOfCharacter} />
+                    <img src={payload.originalCharacter} alt={payload.nameOfCharacter} />
                 </div>
             </div>
-            
+
 
             <h3 className="ProjectHeader">Translations</h3>
 

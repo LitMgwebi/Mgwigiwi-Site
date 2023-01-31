@@ -3,11 +3,14 @@ import { Card } from "@material-ui/core";
 import BackgroundCard from "./components/BackgroundCard";
 import AddBackground from "./components/AddBackground";
 import DigitalHeader from "../../../../components/DigitalHeader";
+import { useAuthContext } from "../../../../hooks/useAuthContext";
 
 function BackgroundIndex() {
     const { payloads, isPending, error } = GetAll("background");
+    console.log(payloads)
+    const { user } = useAuthContext();
 
-    function refreshPage(){
+    function refreshPage() {
         window.location.reload(false)
     }
     return (
@@ -19,17 +22,19 @@ function BackgroundIndex() {
             </div>
 
             <div className="information">
-                {payloads === null ? <div className="information">Whole lot of nothing</div>
+                {payloads === null ? <div>Whole lot of nothing</div>
                     : payloads.map((payload, i) => {
                         return (
-                            <BackgroundCard payload={payload} refreshPage={refreshPage}/>
+                            <BackgroundCard payload={payload} refreshPage={refreshPage} />
                         );
                     })}
             </div>
 
-            <Card className="createCard">
-                <AddBackground />
-            </Card>
+            {user && (
+                <Card className="createCard">
+                    <AddBackground />
+                </Card>
+            )}
 
         </div>
     )

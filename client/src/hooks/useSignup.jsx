@@ -26,7 +26,7 @@ export const useSignup = () => {
             localStorage.setItem('user', JSON.stringify(res.data))
             dispatch({ type: 'LOGIN', payload: res.data });
             setIsLoading(false);
-            navigate("/list");
+            navigate("/");
         }).catch((error) => {
             console.log(error.response.data.error)
             setIsLoading(false);

@@ -67,7 +67,7 @@ router.get('/:id', async (req, res) => {
 //#endregion
 
 //#region POST /fine-art/add/
-router.post('/add', upload.single('photo'), async (req, res) => {
+router.post('/add', upload.single('photo'), requireAuth, async (req, res) => {
     let fineArt = null;
     try {
         const data = await uploadToCloudinary(req.file.path, "fine")
@@ -79,7 +79,7 @@ router.post('/add', upload.single('photo'), async (req, res) => {
             dimension: req.body.dimension,
             photo: data.url,
             public_id: data.public_id,
-            // user_id: req.user._id
+            user_id: req.user._id
         });
         await fineArt.save();
         res.status(201).send({
@@ -106,7 +106,7 @@ router.put('/:id', async (req, res) => {
 //#endregion
 
 //#region DELETE /fine-art/:id
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', requireAuth, async (req, res) => {
     let fineArt = null
     try {
         fineArt = await FineArt.findById(req.params.id);

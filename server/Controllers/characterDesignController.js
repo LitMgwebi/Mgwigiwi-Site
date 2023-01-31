@@ -61,7 +61,7 @@ router.get('/:id', async (req, res) => {
 //#endregion
 
 //#region POST
-router.post('/add', upload.single('originalCharacter'), async (req, res) => {
+router.post('/add', upload.single('originalCharacter'), requireAuth, async (req, res) => {
     let cd = null;
     try {
         const data = await uploadToCloudinary(req.file.path, "characterDesign")
@@ -70,6 +70,7 @@ router.post('/add', upload.single('originalCharacter'), async (req, res) => {
             nameOfCharacter: req.body.nameOfCharacter,
             originalCharacter: data.url,
             public_id: data.public_id,
+            user_id: req.user._id
             // user_id: req.user._id
         });
         await cd.save();
@@ -91,7 +92,7 @@ router.post('/add', upload.single('originalCharacter'), async (req, res) => {
 //#endregion
 
 //#region DELETE
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', requireAuth, async (req, res) => {
     let cd = null
     try {
         cd = await CharacterDesign.findById(req.params.id);

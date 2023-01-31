@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { useAuthContext } from "../../../../hooks/useAuthContext";
 
 function AddFineArt() {
     const [error, setError] = useState(null);
@@ -9,6 +10,7 @@ function AddFineArt() {
     const [dimension, setDimension] = useState("");
     const [description, setDescription] = useState("");
     const [photo, setPhoto] = useState("");
+    const { user } = useAuthContext();
 
     function handleCancel(e){
         e.preventDefault();
@@ -36,6 +38,7 @@ function AddFineArt() {
             headers: {
                 'accept': 'application/json',
                 'Content-Type': 'multipart/form-data',
+                'Authorization': `Bearer ${user.token}`,
             }
         }).then((res) => {
             setError(null);

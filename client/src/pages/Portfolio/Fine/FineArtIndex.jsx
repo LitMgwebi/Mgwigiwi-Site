@@ -3,9 +3,11 @@ import AddFineArt from "./components/AddFineArt";
 import { Card } from "@material-ui/core";
 import ProjectHeader from "../../../components/ProjectHeader";
 import OutputFineArt from "./components/OutputFineArt";
+import { useAuthContext } from "../../../hooks/useAuthContext";
 
 function FineArtIndex() {
     const { payloads, isPending, error } = GetAll("fineArt");
+    const { user } = useAuthContext();
 
     return (
         <div id="Index">
@@ -18,9 +20,11 @@ function FineArtIndex() {
             {payloads === null ? <div className="information">Whole lot of nothing</div>
                 : <OutputFineArt payloads={payloads} />}
 
-            <Card className="createCard">
-                <AddFineArt />
-            </Card>
+            {user && (
+                <Card className="createCard">
+                    <AddFineArt />
+                </Card>
+            )}
         </div>
     )
 }

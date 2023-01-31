@@ -36,7 +36,7 @@ const animationSchema = new Schema({
         type: String,
         required: true,
     },
-});
+}, { timestamps: true });
 
 const Animation = model('Animation', animationSchema);
 

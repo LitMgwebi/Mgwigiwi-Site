@@ -11,12 +11,12 @@ const router = Router();
 
 //#region GET
 
-//#region GET All
+//#region GET All 
 router.get('/', async (req, res) => {
     let animation = null;
 
     try {
-        animation = await Animation.find();
+        animation = await Animation.find().sort({createdAt: 'desc'}).exec();
 
         res.status(200).send({
             animation: animation,
@@ -65,7 +65,7 @@ router.post("/add", upload.fields([
     { name: 'backgrounds' },
     { name: 'effects' },
     { name: "preview" }
-]), async (req, res) => {
+]), requireAuth, async (req, res) => {
     let animation = null;
 
     try {
@@ -89,7 +89,8 @@ router.post("/add", upload.fields([
             backgrounds: backgrounds,
             backgrounds_public_ids: backgrounds_public_ids,
             effects: effects,
-            effects_public_ids: effects_public_ids
+            effects_public_ids: effects_public_ids,
+            user_id: req.user._id
         });
 
         await animation.save();
@@ -111,7 +112,7 @@ router.post("/add", upload.fields([
 //#endregion
 
 //#region DELETE
-router.delete("/:id", async function(req, res) {
+router.delete("/:id", requireAuth, async function(req, res) {
     let animation = null;
     try{
         animation = await Animation.findById(req.params.id);

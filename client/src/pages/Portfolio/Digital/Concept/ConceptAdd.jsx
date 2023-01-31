@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ProjectHeader from "../../../../components/ProjectHeader";
+import { useAuthContext } from "../../../../hooks/useAuthContext";
 
 function AddConcept() {
     const [photos, setPhotos] = useState("");
@@ -9,6 +10,7 @@ function AddConcept() {
     const [description, setDescription] = useState("");
     const [error, setError] = useState(null);
     const [status, setStatus] = useState(null);
+    const { user } = useAuthContext();
     const navigate = useNavigate();
 
 
@@ -30,6 +32,7 @@ function AddConcept() {
             headers: {
                 'accept': 'application/json',
                 'Content-Type': `multipart/form-data`,
+                'Authorization': `Bearer ${user.token}`,
             }
         }).then((res) => {
             setError(null);

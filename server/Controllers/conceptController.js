@@ -59,7 +59,7 @@ router.get("/:id", async (req, res) => {
 //#endregion
 
 //#region POST
-router.post('/add', upload.array("photos"), async (req, res) => {
+router.post('/add', upload.array("photos"), requireAuth, async (req, res) => {
     let concept = null;
     let data;
     const photos = []
@@ -80,6 +80,7 @@ router.post('/add', upload.array("photos"), async (req, res) => {
             description: req.body.description,
             photos: photos,
             public_ids: public_ids,
+            user_id: req.user._id
         });
 
         await concept.save();
@@ -100,7 +101,7 @@ router.post('/add', upload.array("photos"), async (req, res) => {
 //#endregion
 
 //#region DELETE /fine-art/:id
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', requireAuth, async (req, res) => {
     let concept = null
     try {
         concept = await Concept.findById(req.params.id);

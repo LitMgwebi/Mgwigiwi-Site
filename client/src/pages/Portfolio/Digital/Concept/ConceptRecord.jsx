@@ -3,11 +3,13 @@ import { useLocation } from "react-router";
 import axios from "axios";
 import { GetOneConcept } from "../../../../hooks/useGet";
 import Slider from "../../../../components/Slider";
+import { useAuthContext } from "../../../../hooks/useAuthContext";
 
 function ConceptRecord() {
     const location = useLocation();
     const navigate = useNavigate();
     const id = location.state.stateId;
+    const { user } = useAuthContext();
 
     const { payload, isPending, error, setIsPending, setError } = GetOneConcept(id);
     const photos = Array.from(payload.photos);
@@ -20,7 +22,10 @@ function ConceptRecord() {
     function handleDelete() {
         axios({
             method: "DELETE",
-            url: `http://localhost:1500/concept/${id}`
+            url: `http://localhost:1500/concept/${id}`,
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
         }).then((res) => {
             setIsPending(false);
             setError(null);
@@ -42,9 +47,11 @@ function ConceptRecord() {
 
                 <div className="button-group">
                     <Link to="/portfolio/concept/"><button className="btn btn-secondary">Back</button></Link>
-                    <button onClick={handleConfirm} className="btn btn-danger">
-                        Delete
-                    </button>
+                    {user && (
+                        <button onClick={handleConfirm} className="btn btn-danger">
+                            Delete
+                        </button>
+                    )}
                 </div>
             </div>
 

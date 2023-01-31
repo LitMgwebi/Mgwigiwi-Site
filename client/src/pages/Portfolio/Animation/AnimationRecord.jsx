@@ -3,11 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
 import axios from "axios";
 import { GetOneAnimation } from "../../../hooks/useGet";
+import { useAuthContext } from "../../../hooks/useAuthContext";
 
 function AnimationRecord() {
     const location = useLocation();
     const navigate = useNavigate();
     const id = location.state.stateId;
+    const { user } = useAuthContext();
 
     const { payload, isPending, error, setIsPending, setError } = GetOneAnimation(id);
 
@@ -19,7 +21,10 @@ function AnimationRecord() {
     function handleDelete() {
         axios({
             method: "DELETE",
-            url: `http://localhost:1500/animation/${id}`
+            url: `http://localhost:1500/animation/${id}`,
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
         }).then((res) => {
             setIsPending(false);
             setError(null);
@@ -39,9 +44,11 @@ function AnimationRecord() {
 
                 <div className="button-group">
                     <button className="btn btn-secondary"><Link to="/portfolio/animation/">Back</Link></button>
-                    <button onClick={handleConfirm} className="btn btn-danger">
-                        Delete
-                    </button>
+                    {user && (
+                        <button onClick={handleConfirm} className="btn btn-danger">
+                            Delete
+                        </button>
+                    )}
                 </div>
             </div>
             <div className="information">

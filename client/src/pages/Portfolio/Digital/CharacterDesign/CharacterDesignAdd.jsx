@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import TranslationAdd from "./Translation/TranslationAdd";
 import ProjectHeader from "../../../../components/ProjectHeader";
+import { useAuthContext } from "../../../../hooks/useAuthContext";
 
 function CharacterDesignAdd() {
     const [error, setError] = useState(null);
@@ -11,6 +12,7 @@ function CharacterDesignAdd() {
     const [originalCharacter, setOriginalCharacter] = useState("");
     const [showButton, setShowButton] = useState(false);
     const [id, setId] = useState(null);
+    const { user } = useAuthContext();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -27,6 +29,7 @@ function CharacterDesignAdd() {
             headers: {
                 'accept': 'application/json',
                 'Content-Type': `multipart/form-data`,
+                'Authorization': `Bearer ${user.token}`,
             }
         }).then((res) => {
             setError(null);

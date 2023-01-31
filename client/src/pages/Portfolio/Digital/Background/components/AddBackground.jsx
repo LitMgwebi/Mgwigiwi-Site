@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
+import { useAuthContext } from "../../../../../hooks/useAuthContext";
 
 function AddBackground() {
     const [error, setError] = useState(null);
     const [title, setTitle] = useState("");
     const [photo, setPhoto] = useState("");
+    const { user } = useAuthContext();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -21,6 +23,7 @@ function AddBackground() {
             headers: {
                 'accept': 'application/json',
                 'Content-Type': 'multipart/form-data',
+                'Authorization': `Bearer ${user.token}`,
             }
         }).then((res) => {
             setError(null);

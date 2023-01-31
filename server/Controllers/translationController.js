@@ -38,7 +38,7 @@ router.get('/', async(req, res) => {
 //#endregion
 
 //#region POST
-router.post('/add', upload.array("process"), async(req, res) => {
+router.post('/add', upload.array("process"), requireAuth, async(req, res) => {
     let translation = null;
     let data;
     const process = [];
@@ -59,7 +59,8 @@ router.post('/add', upload.array("process"), async(req, res) => {
             description: req.body.description,
             characterDesign: req.body.characterDesign,
             process: process,
-            public_ids: public_ids
+            public_ids: public_ids,
+            user_id: req.user._id
         });
 
         await translation.save();
@@ -85,7 +86,7 @@ router.post('/add', upload.array("process"), async(req, res) => {
 //#endregion
 
 //#region DELETE
-router.delete("/:id", async function(req, res) {
+router.delete("/:id", requireAuth, async function(req, res) {
     let translation = null;
     try{
         translation = await Translation.findById(req.params.id);

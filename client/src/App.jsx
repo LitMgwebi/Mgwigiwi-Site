@@ -22,41 +22,44 @@ import AnimationRecord from "./pages/Portfolio/Animation/AnimationRecord";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
 
+import { useAuthContext } from "./hooks/useAuthContext";
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
+  Navigate
 } from "react-router-dom";
 
 function App() {
+  const {user} = useAuthContext();
   return (
     <div className="App">
-    <Header />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
 
-          <Route path="/login" element={<Login/>} />
-          <Route path="/signup" element={<Signup/>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
 
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/portfolio/fine-art" element={<FineArtIndex />} />
           <Route path="/portfolio/background" element={<BackgroundIndex />} />
 
           <Route path="/portfolio/concept" element={<ConceptIndex />} />
-          <Route path="/portfolio/concept/add" element={<ConceptAdd />} />
+          <Route path="/portfolio/concept/add" element={user? <ConceptAdd /> : <Navigate to="/portfolio/concept"/>} />
           <Route path="/portfolio/concept/:id" element={<ConceptRecord />} />
 
           <Route path="/portfolio/character-design" element={<CharacterDesignIndex />} />
-          <Route path="/portfolio/character-design/add" element={<CharacterDesignAdd />} />
+          <Route path="/portfolio/character-design/add" element={user? <CharacterDesignAdd /> : <Navigate to="/portfolio/character-design"/>} />
           <Route path="/portfolio/character-design/:id" element={<CharacterDesignRecord />} />
 
           <Route path="/portfolio/animation" element={<AnimationIndex />} />
-          <Route path="/portfolio/animation/add" element={<AnimationAdd />} />
+          <Route path="/portfolio/animation/add" element={user ?<AnimationAdd /> : <Navigate to="/portfolio/animation"/>} />
           <Route path="/portfolio/animation/:id" element={<AnimationRecord />} />
         </Routes>
       </BrowserRouter>
-        <Footer />
+      <Footer />
     </div>
   );
 }

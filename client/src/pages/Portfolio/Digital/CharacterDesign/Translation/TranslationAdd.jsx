@@ -1,13 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../../../../../hooks/useAuthContext";
 
 function TranslationAdd({ id }) {
     const [process, setProcess] = useState("");
     const [description, setDescription] = useState("");
     const [error, setError] = useState(null);
     const [status, setStatus] = useState(null);
-    const [showButton, setShowButton] = useState(false)
+    const [showButton, setShowButton] = useState(false);
+    const { user } = useAuthContext();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -27,6 +29,7 @@ function TranslationAdd({ id }) {
             headers: {
                 'accept': 'application/json',
                 'Content-Type': `multipart/form-data`,
+                'Authorization': `Bearer ${user.token}`,
             },
         }).then((res) => {
             setError(null);
