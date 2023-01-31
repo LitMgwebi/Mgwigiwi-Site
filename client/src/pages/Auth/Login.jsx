@@ -17,37 +17,39 @@ const Login = () => {
         }
     }
     return (
-        <form className="authForm" onSubmit={handleSubmit}>
-            <h3>Login</h3>
+        <div id="Add">
+        <h3>Login</h3>
+            <form className="authForm" onSubmit={handleSubmit}>
 
-            <div className="formInput">
-                <div className="singleLineInput">
-                    <label>Email: </label>
-                    <input
-                        type="email"
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                    />
+                <div className="auth">
+                    <div className="singleLineInput">
+                        <label>Email: </label>
+                        <input
+                            type="email"
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
+                        />
+                    </div>
+
+                    <div className="singleLineInput">
+                        <label>Password: </label>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div className="controls">
+                    {error && <div className="error">{error}</div>}
+                    <div className="button-group">
+                        <button disabled={isLoading} type='submit' className="btn btn-primary">Login</button>
+                        <Link to="/"><button className="btn btn-secondary">Back</button></Link>
+                    </div>
                 </div>
 
-                <div className="singleLineInput">
-                    <label>Password: </label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-            </div>
-            <div className="controls">
-                {error && <div className="error">{error}</div>}
-                <div className="button-group">
-                    <button disabled={isLoading} type='submit' className="btn btn-primary">Login</button>
-                    <Link to="/"><button className="btn btn-secondary">Back</button></Link>
-                </div>
-            </div>
-
-        </form>
+            </form>
+        </div>
     );
 }
 
