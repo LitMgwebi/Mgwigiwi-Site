@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import previous from "../media/logos/previous.png";
+import home from "../media/logos/home.png"
 
 function ProjectHeader({ header, link }) {
     return (
@@ -8,7 +10,7 @@ function ProjectHeader({ header, link }) {
                     <Link
                         to={link}
                     >
-                        Back
+                        <img src={previous} className="headerLogo" alt="theme" />
                     </Link>
                     : <div></div>}
             </div>
@@ -19,7 +21,9 @@ function ProjectHeader({ header, link }) {
                 {link !== "home" ?
 
                     <Link to="/">
-                        Home</Link> : <div></div>}
+                        <img src={home} className="headerLogo" alt="theme" />
+                    </Link>
+                    : <div></div>}
             </div>
 
         </div>

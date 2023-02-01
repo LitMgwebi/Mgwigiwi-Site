@@ -33,6 +33,8 @@ code {
   width: 100%;
   height: 100vh;
   overflow-y: auto;
+  background-color: var(--backgroundColor);
+  color: var(--textColour);
   text-align: center;
 }
 
@@ -62,13 +64,16 @@ code {
 }
 
 a {
-  color: black
+  color: var(--textColour)
 }
 
+
+/*
+Header
+*/
 #Header {
   position: relative;
-  background-color: grey;
-  /* top: 0; */
+  background-color: var(--primaryColour);
   min-height: 4rem;
   margin-bottom: 2rem;
   width: 100%;
@@ -76,7 +81,37 @@ a {
   grid-template-columns: 50% 50%;
   align-items: center;
 }
-
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:100%;
+}
+.header p{
+  margin: auto 0;
+}
+.headerButton{
+  margin: 0 2rem;
+  width: 2rem;
+  height: 2rem;
+}
+.headerLogo {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.headerLogo:hover {
+  width: 1.45rem;
+  height: 1.45rem;
+}
+.profile{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.profile button{
+  margin: 1rem
+}
 
 
 
@@ -136,8 +171,11 @@ Project Header
   margin: 0 1.5rem;
 }
 
+.card *, .backgroundCard *{
+  color: var(--textColour);
+}
 .card:hover {
-  background-color: aqua;
+  background-color: var(--backgroundColor);
 }
 
 .cardHeader {
@@ -163,6 +201,9 @@ Card Forms (Background and Fine Art)
   height: auto;
   padding: 1rem;
   justify-content: center;
+}
+.createCard:hover{
+  background-color: var(--primaryColour);
 }
 
 .cardForm input,
@@ -248,7 +289,8 @@ label {
   height: 80%;
   padding: 1rem;
   justify-content: center;
-  border: 1px solid #000;
+  border-radius: 1em;
+  background-color: var(--primaryColour);
 }
 .auth div {
   width: 100%;
@@ -280,7 +322,7 @@ Content and Index
   justify-content: center;
   flex-flow: row wrap;
   text-align: center;
-  background-color: grey;
+  background-color: var(--primaryColour);
   padding: 1.4em 1.4em;
 }
 
@@ -395,7 +437,7 @@ Swiper Slider
   width: 100%;
   margin: 2rem 0 0;
   min-height: 6.2rem;
-  background-color: grey;
+  background-color: var(--primaryColour);
 }
 
 /* Extra small devices (phones, 600px and down) */

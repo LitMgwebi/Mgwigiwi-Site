@@ -21,6 +21,7 @@ import AnimationRecord from "./pages/Portfolio/Animation/AnimationRecord";
 
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
+import useLocalStorage from "use-local-storage" 
 
 import { useAuthContext } from "./hooks/useAuthContext";
 import {
@@ -32,10 +33,18 @@ import {
 
 function App() {
   const {user} = useAuthContext();
+  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
+
+  const switchTheme = () => {
+    const newTheme = theme === 'light'
+      ? 'dark' : 'light';
+    setTheme(newTheme);
+  }
   return (
-    <div className="App">
+    <div className="App" data-theme={theme}>
       <BrowserRouter>
-        <Header />
+        <Header theme={switchTheme} imgIcon={theme}/>
         <Routes>
           <Route path="/" element={<Home />} />
 

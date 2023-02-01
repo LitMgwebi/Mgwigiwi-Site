@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
+import sun from "../media/logos/sun.svg"
+import moon from "../media/logos/moon.svg"
 
-function Header() {
+function Header({ theme, imgIcon }) {
     const { logout } = useLogout();
     const { user } = useAuthContext();
 
@@ -10,7 +12,11 @@ function Header() {
     return (
         <div id="Header">
             <div className="header">
-                <p> Header</p>
+                <p ><Link to="/">Mo's Site</Link></p>
+                <div className="headerButton">
+                    {imgIcon === "dark" ? <img src={sun} onClick={theme} className="headerLogo" alt="theme" />
+                        : <img src={moon} onClick={theme} className="headerLogo" alt="theme" />}
+                </div>
             </div>
 
             <div className="profile">

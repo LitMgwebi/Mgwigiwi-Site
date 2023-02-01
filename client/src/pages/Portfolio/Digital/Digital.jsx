@@ -1,5 +1,7 @@
 import LinkCard from "../../../components/LinkCard";
 import { Link } from "react-router-dom";
+import previous from "../../../media/logos/previous.png";
+import home from "../../../media/logos/home.png";
 
 function Digital({ handleFlip }) {
     return (
@@ -7,14 +9,14 @@ function Digital({ handleFlip }) {
             <div id="ProjectHeader">
                 <div className="button-group">
                     <button className="btn btn-link" onClick={handleFlip}>
-                        Back
+                        <img src={previous} className="headerLogo" alt="theme" />
                     </button>
                 </div>
                 <div><h1>Digital Art</h1></div>
                 <div>
                     <button className="btn btn-link">
                         <Link to="/">
-                            Home
+                            <img src={home} className="headerLogo" alt="theme" />
                         </Link>
                     </button>
                 </div>
