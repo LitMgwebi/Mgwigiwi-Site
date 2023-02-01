@@ -11,7 +11,7 @@ function DigitalHeader({ header, link }) {
                         to={link}
                         state={{ fromDigital: true }}
                     >
-                        <img src={previous} className="headerLogo" alt="theme" />
+                        <img src={previous} className="previousLogo" alt="back" />
                     </Link>
                     : <div></div>}
             </div>
@@ -22,7 +22,7 @@ function DigitalHeader({ header, link }) {
                 {link !== "home" ?
 
                     <Link to="/">
-                        <img src={home} className="headerLogo" alt="theme" />
+                        <img src={home} className="homeLogo" alt="home" />
                     </Link>
                     : <div></div>}
             </div>

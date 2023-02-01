@@ -103,14 +103,24 @@ Header
   width: 1.45rem;
   height: 1.45rem;
 }
+.log *{
+  margin: 0.5rem;
+}
+.previousLogo, .homeLogo {
+  width: 2rem;
+  height: 2rem;
+}
+.previousLogo:hover, .homeLogo:hover {
+  width: 2.3rem;
+  height: 2.3rem;
+}
 .profile{
   height: 100%;
   display: flex;
+  /* contain: content; */
+  /* flex-flow: row nowrap; */
   align-items: center;
-  justify-content: flex-end;
-}
-.profile button{
-  margin: 1rem
+  justify-content: center;
 }
 
 

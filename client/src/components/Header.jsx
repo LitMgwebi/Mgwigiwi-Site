@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
-import sun from "../media/logos/sun.svg"
-import moon from "../media/logos/moon.svg"
+import sun from "../media/logos/sun.svg";
+import moon from "../media/logos/moon.svg";
+import login from "../media/logos/login.png";
+import logOut from "../media/logos/logout.png";
+import signup from "../media/logos/signup.png";
 
 function Header({ theme, imgIcon }) {
     const { logout } = useLogout();
@@ -22,15 +25,15 @@ function Header({ theme, imgIcon }) {
             <div className="profile">
                 <nav>
                     {user && (
-                        <div className="loggedIn">
+                        <div className="log">
                             <span>{user.email}</span>
-                            <button onClick={handleClick}>Logout</button>
+                            <img src={logOut} onClick={handleClick} className="headerLogo" alt="logout" />
                         </div>
                     )}
                     {!user && (
-                        <div className="loggedOUT">
-                            <button><Link to="/login">Login</Link></button>
-                            <button><Link to="/signup">Signup</Link></button>
+                        <div className="log">
+                            <Link to="/login"><img src={login} className="headerLogo" alt="login" /></Link>
+                            <Link to="/signup"><img src={signup} className="headerLogo" alt="signup" /></Link>
                         </div>
                     )}
                 </nav>

@@ -10,9 +10,6 @@ function BackgroundIndex() {
     console.log(payloads)
     const { user } = useAuthContext();
 
-    function refreshPage() {
-        window.location.reload(false)
-    }
     return (
         <div id="BackgroundIndex">
             <div className="section">
@@ -24,7 +21,7 @@ function BackgroundIndex() {
                 {payloads === null ? <div className="information">Whole lot of nothing</div>
                     : payloads.map((payload, i) => {
                         return (
-                            <BackgroundCard payload={payload} refreshPage={refreshPage} />
+                            <BackgroundCard payload={payload}/>
                         );
                     })}
             </div>

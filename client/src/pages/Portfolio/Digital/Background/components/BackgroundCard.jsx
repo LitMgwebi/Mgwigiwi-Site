@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useAuthContext } from "../../../../../hooks/useAuthContext";
 
-function BackgroundCard({ payload, refreshPage }) {
+function BackgroundCard({ payload }) {
     const [error, setError] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const { user } = useAuthContext();
@@ -29,7 +29,8 @@ function BackgroundCard({ payload, refreshPage }) {
             setIsPending(false);
             setError(error.response.data.error);
         });
-        refreshPage();
+        
+        window.location.reload(false);
     }
 
     return (

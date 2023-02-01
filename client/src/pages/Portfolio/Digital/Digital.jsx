@@ -9,14 +9,14 @@ function Digital({ handleFlip }) {
             <div id="ProjectHeader">
                 <div className="button-group">
                     <button className="btn btn-link" onClick={handleFlip}>
-                        <img src={previous} className="headerLogo" alt="theme" />
+                        <img src={previous} className="previousLogo" alt="back" />
                     </button>
                 </div>
                 <div><h1>Digital Art</h1></div>
                 <div>
                     <button className="btn btn-link">
                         <Link to="/">
-                            <img src={home} className="headerLogo" alt="theme" />
+                            <img src={home} className="homeLogo" alt="home" />
                         </Link>
                     </button>
                 </div>

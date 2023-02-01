@@ -10,7 +10,7 @@ function ProjectHeader({ header, link }) {
                     <Link
                         to={link}
                     >
-                        <img src={previous} className="headerLogo" alt="theme" />
+                        <img src={previous} className="previousLogo" alt="back" />
                     </Link>
                     : <div></div>}
             </div>
@@ -21,7 +21,7 @@ function ProjectHeader({ header, link }) {
                 {link !== "home" ?
 
                     <Link to="/">
-                        <img src={home} className="headerLogo" alt="theme" />
+                        <img src={home} className="homeLogo" alt="home" />
                     </Link>
                     : <div></div>}
             </div>
