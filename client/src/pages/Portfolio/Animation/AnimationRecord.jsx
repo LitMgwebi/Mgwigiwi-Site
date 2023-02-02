@@ -4,12 +4,14 @@ import { useLocation } from "react-router";
 import axios from "axios";
 import { GetOneAnimation } from "../../../hooks/useGet";
 import { useAuthContext } from "../../../hooks/useAuthContext";
+import baseUrl from "../../../components/baseUrl";
 
 function AnimationRecord() {
     const location = useLocation();
     const navigate = useNavigate();
     const id = location.state.stateId;
     const { user } = useAuthContext();
+    const {url} = baseUrl;
 
     const { payload, isPending, error, setIsPending, setError } = GetOneAnimation(id);
 
@@ -21,7 +23,7 @@ function AnimationRecord() {
     function handleDelete() {
         axios({
             method: "DELETE",
-            url: `http://localhost:1500/animation/${id}`,
+            url: `${url}/animation/${id}`,
             headers: {
                 'Authorization': `Bearer ${user.token}`
             }

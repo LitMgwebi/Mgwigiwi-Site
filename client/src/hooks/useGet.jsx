@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
+import baseUrl from "../components/baseUrl";
 
 //#region GET ALL
 const GetAll = (dest) => {
@@ -7,11 +8,12 @@ const GetAll = (dest) => {
     const [error, setError] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [status, setStatus] = useState(null);
+    const {url} = baseUrl;
 
     useEffect(() => {
         axios({
             method: "GET",
-            url: `http://localhost:1500/${dest}/`
+            url: `${url}/${dest}/`
         }).then((res) => {
             setError(null);
             if (res.data) {
@@ -26,7 +28,7 @@ const GetAll = (dest) => {
             setError(error.message);
             setStatus(error.response.data.error);
         });
-    }, [dest]);
+    }, [dest, url]);
 
     return { payloads, error, isPending, status, setIsPending, setError, setStatus}
 }
@@ -36,11 +38,12 @@ const GetAllTranslation = (id) => {
     const [error, setError] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [status, setStatus] = useState(null);
+    const {url} = baseUrl;
 
     useEffect(() => {
         axios({
             method: "GET",
-            url: `http://localhost:1500/translation/`,
+            url: `${url}/translation/`,
             params:{
                 characterDesign: id
             }
@@ -58,7 +61,7 @@ const GetAllTranslation = (id) => {
             setStatus(error.response.data.error);
             setError(error.message);
         });
-    }, [id]);
+    }, [id, url]);
 
     return { payloads, error, isPending, status, setIsPending, setError, setStatus}
 }
@@ -75,11 +78,12 @@ const GetOneConcept = (id) => {
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
     const [status, setStatus] = useState(null);
+    const {url} = baseUrl;
 
     useEffect(() => {
         axios({
             method: "GET",
-            url: `http://localhost:1500/concept/${id}`
+            url: `${url}/concept/${id}`
         }).then((res) => {
             const update = {
                 title: res.data.concept.title,
@@ -98,7 +102,7 @@ const GetOneConcept = (id) => {
             setStatus(error.response.data.error);
             setError(error.message);
         })
-    }, [id]);
+    }, [id, url]);
     return { payload, isPending, error, status, setStatus, setIsPending, setError }
 }
 
@@ -110,11 +114,12 @@ const GetOneCharacterDesign = (id) => {
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
     const [status, setStatus] = useState(null);
+    const {url} = baseUrl;
 
     useEffect(() => {
         axios({
             method: "GET",
-            url: `http://localhost:1500/characterDesign/${id}`
+            url: `${url}/characterDesign/${id}`
         }).then((res) => {
             const update = {
                 nameOfCharacter: res.data.characterDesign.nameOfCharacter,
@@ -133,7 +138,7 @@ const GetOneCharacterDesign = (id) => {
             setStatus(error.response.data.error)
             setError(error.message);
         })
-    }, [id]);
+    }, [id, url]);
 
     return { payload, isPending, error, status, setStatus, setIsPending, setError }
 }
@@ -150,11 +155,12 @@ const GetOneAnimation = (id) => {
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
     const [status, setStatus] = useState(null);
+    const {url} = baseUrl;
 
     useEffect(() => {
         axios({
             method: "GET",
-            url: `http://localhost:1500/animation/${id}`
+            url: `${url}/animation/${id}`
         }).then((res) => {
             const update = {
                 title: res.data.animation.title,
@@ -176,7 +182,7 @@ const GetOneAnimation = (id) => {
             setError(error.message);
             setStatus(error.response.data.error);
         })
-    }, [id]);
+    }, [id, url]);
 
     return {payload, isPending, error, status, setStatus, setIsPending, setError};
 }

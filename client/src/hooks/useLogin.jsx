@@ -2,12 +2,14 @@ import { useState } from "react";
 import axios from "axios";
 import { useAuthContext } from './useAuthContext';
 import { useNavigate } from "react-router-dom";
+import baseUrl from "../components/baseUrl";
 
 export const useLogin = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
     const { dispatch } = useAuthContext();
     const navigate = useNavigate();
+    const {url} = baseUrl;
 
     const login = async (email, password) => {
         setIsLoading(true);
@@ -17,7 +19,7 @@ export const useLogin = () => {
 
         axios({
             method: 'POST',
-            url: 'http://localhost:1500/auth/login',
+            url: `${url}/auth/login`,
             data: userData,
             headers: {
                 'Content-Type': 'application/json'

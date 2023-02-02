@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
 import { useAuthContext } from "../../../../../hooks/useAuthContext";
+import baseUrl from "../../../../../components/baseUrl";
 
 function AddBackground() {
     const [error, setError] = useState(null);
     const [title, setTitle] = useState("");
     const [photo, setPhoto] = useState("");
     const { user } = useAuthContext();
+    const {url} = baseUrl;
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -18,7 +20,7 @@ function AddBackground() {
 
         axios({
             method: 'POST',
-            url: 'http://localhost:1500/background/add',
+            url: `${url}/background/add`,
             data: data,
             headers: {
                 'accept': 'application/json',

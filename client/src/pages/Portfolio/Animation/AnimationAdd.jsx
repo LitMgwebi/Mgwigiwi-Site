@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ProjectHeader from '../../../components/ProjectHeader';
 import { useAuthContext } from "../../../hooks/useAuthContext";
+import baseUrl from "../../../components/baseUrl";
 
 function AnimationAdd() {
     const [title, setTitle] = useState("");
@@ -15,6 +16,7 @@ function AnimationAdd() {
     const [status, setStatus] = useState(null);
     const { user } = useAuthContext();
     const navigate = useNavigate();
+    const {url} = baseUrl;
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -36,7 +38,7 @@ function AnimationAdd() {
 
         axios({
             method: "POST",
-            url: 'http://localhost:1500/animation/add',
+            url: `${url}/animation/add`,
             data: formData,
             headers: {
                 'accept': 'application/json',

@@ -4,12 +4,14 @@ import axios from "axios";
 import { GetOneConcept } from "../../../../hooks/useGet";
 import Slider from "../../../../components/Slider";
 import { useAuthContext } from "../../../../hooks/useAuthContext";
+import baseUrl from "../../../../components/baseUrl";
 
 function ConceptRecord() {
     const location = useLocation();
     const navigate = useNavigate();
     const id = location.state.stateId;
     const { user } = useAuthContext();
+    const {url} = baseUrl
 
     const { payload, isPending, error, setIsPending, setError } = GetOneConcept(id);
     const photos = Array.from(payload.photos);
@@ -22,7 +24,7 @@ function ConceptRecord() {
     function handleDelete() {
         axios({
             method: "DELETE",
-            url: `http://localhost:1500/concept/${id}`,
+            url: `${url}/concept/${id}`,
             headers: {
                 'Authorization': `Bearer ${user.token}`
             }

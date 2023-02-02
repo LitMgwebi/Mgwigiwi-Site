@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../../../../hooks/useAuthContext";
+import baseUrl from "../../../../../components/baseUrl";
 
 function TranslationAdd({ id }) {
     const [process, setProcess] = useState("");
@@ -10,6 +11,7 @@ function TranslationAdd({ id }) {
     const [status, setStatus] = useState(null);
     const [showButton, setShowButton] = useState(false);
     const { user } = useAuthContext();
+    const {url} = baseUrl
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -24,7 +26,7 @@ function TranslationAdd({ id }) {
 
         axios({
             method: "POST",
-            url: "http://localhost:1500/translation/add",
+            url: `${url}/translation/add`,
             data: formData,
             headers: {
                 'accept': 'application/json',

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useAuthContext } from "../../../../hooks/useAuthContext";
+import baseUrl, {url} from "../../../../components/baseUrl";
 
 function AddFineArt() {
     const [error, setError] = useState(null);
@@ -11,6 +12,7 @@ function AddFineArt() {
     const [description, setDescription] = useState("");
     const [photo, setPhoto] = useState("");
     const { user } = useAuthContext();
+    const {url} = baseUrl;
 
     function handleCancel(e){
         e.preventDefault();
@@ -33,7 +35,7 @@ function AddFineArt() {
         }
         axios({
             method: 'POST',
-            url: 'http://localhost:1500/fineArt/add',
+            url: `${url}/fineArt/add`,
             data: data,
             headers: {
                 'accept': 'application/json',

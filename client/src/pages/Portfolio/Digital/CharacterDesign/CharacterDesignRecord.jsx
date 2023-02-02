@@ -4,11 +4,13 @@ import axios from "axios";
 import { GetAllTranslation, GetOneCharacterDesign } from "../../../../hooks/useGet";
 import TranslationIndex from "./Translation/TranslationIndex";
 import { useAuthContext } from "../../../../hooks/useAuthContext";
+import baseUrl from "../../../../components/baseUrl";
 
 function CharacterDesignRecord() {
     const location = useLocation();
     const navigate = useNavigate();
     const { user } = useAuthContext();
+    const {url} = baseUrl
     const id = location.state.stateId;
 
     const { payload, isPending, error, setIsPending, setError } = GetOneCharacterDesign(id);
@@ -23,7 +25,7 @@ function CharacterDesignRecord() {
     function handleDelete() {
         axios({
             method: "DELETE",
-            url: `http://localhost:1500/characterDesign/${id}`,
+            url: `${url}/characterDesign/${id}`,
             headers: {
                 'Authorization': `Bearer ${user.token}`
             }

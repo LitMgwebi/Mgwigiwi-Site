@@ -2,11 +2,13 @@ import axios from "axios";
 import Slider from "../../../../../components/Slider";
 import { useState } from "react";
 import { useAuthContext } from "../../../../../hooks/useAuthContext";
+import baseUrl from "../../../../../components/baseUrl";
 
 function TranslationIndex({ payload }) {
     const process = Array.from(payload.process);
     const [error, setError] = useState(null)
     const { user } = useAuthContext();
+    const {url} = baseUrl;
 
     const handleConfirm = () => {
         if (window.confirm("Are you sure you want to delete"))
@@ -16,7 +18,7 @@ function TranslationIndex({ payload }) {
     function handleDelete() {
         axios({
             method: "DELETE",
-            url: `http://localhost:1500/translation/${payload._id}`,
+            url: `${url}/translation/${payload._id}`,
             headers: {
                 'Authorization': `Bearer ${user.token}`
             }

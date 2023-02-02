@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import TranslationAdd from "./Translation/TranslationAdd";
 import ProjectHeader from "../../../../components/ProjectHeader";
 import { useAuthContext } from "../../../../hooks/useAuthContext";
+import baseUrl from "../../../../components/baseUrl";
 
 function CharacterDesignAdd() {
     const [error, setError] = useState(null);
@@ -13,6 +14,7 @@ function CharacterDesignAdd() {
     const [showButton, setShowButton] = useState(false);
     const [id, setId] = useState(null);
     const { user } = useAuthContext();
+    const {url} = baseUrl;
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -24,7 +26,7 @@ function CharacterDesignAdd() {
 
         axios({
             method: "POST",
-            url: "http://localhost:1500/characterDesign/add",
+            url: `${url}/characterDesign/add`,
             data: formData,
             headers: {
                 'accept': 'application/json',

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ProjectHeader from "../../../../components/ProjectHeader";
 import { useAuthContext } from "../../../../hooks/useAuthContext";
+import baseUrl from "../../../../components/baseUrl";
 
 function AddConcept() {
     const [photos, setPhotos] = useState("");
@@ -12,7 +13,7 @@ function AddConcept() {
     const [status, setStatus] = useState(null);
     const { user } = useAuthContext();
     const navigate = useNavigate();
-
+    const {url} = baseUrl;
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -27,7 +28,7 @@ function AddConcept() {
 
         axios({
             method: "POST",
-            url: "http://localhost:1500/concept/add",
+            url: `${url}/concept/add`,
             data: formData,
             headers: {
                 'accept': 'application/json',

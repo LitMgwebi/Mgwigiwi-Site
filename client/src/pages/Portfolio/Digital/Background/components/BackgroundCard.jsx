@@ -2,11 +2,13 @@ import { Card, CardMedia } from "@material-ui/core";
 import axios from "axios";
 import { useState } from "react";
 import { useAuthContext } from "../../../../../hooks/useAuthContext";
+import baseUrl from "../../../../../components/baseUrl";
 
 function BackgroundCard({ payload }) {
     const [error, setError] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const { user } = useAuthContext();
+    const {url} = baseUrl;
 
     const handleConfirm = () => {
         if (window.confirm("Are you sure you want to delete"))
@@ -16,7 +18,7 @@ function BackgroundCard({ payload }) {
     function handleDelete() {
         axios({
             method: "DELETE",
-            url: `http://localhost:1500/background/${payload._id}`,
+            url: `${url}/background/${payload._id}`,
             headers: {
                 'Authorization': `Bearer ${user.token}`
             }
