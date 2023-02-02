@@ -20,7 +20,6 @@ const translationController = require("./Controllers/translationController");
 //#region Server configuration
 const dbURL = process.env.DBURL;
 const port = process.env.PORT;
-const host = process.env.HOST
 
 const server = express();
 server.use(express.json());
@@ -34,8 +33,8 @@ server.use(bodyParser.json());
 mongoose.connect(dbURL)
     .then(() => {
         log.info('Connected to database');
-        server.listen(port, host, () => {
-            log.info(`Listening at http://${host}:${port}`);
+        server.listen(port, () => {
+            log.info(`Listening at port: ${port}`);
         });
     }).catch((err)=> {
         log.error(err);
