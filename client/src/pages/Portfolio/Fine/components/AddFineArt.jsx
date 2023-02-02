@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useAuthContext } from "../../../../hooks/useAuthContext";
-import baseUrl, {url} from "../../../../components/baseUrl";
+import baseUrl from "../../../../components/baseUrl";
 
 function AddFineArt() {
     const [error, setError] = useState(null);
@@ -25,7 +25,7 @@ function AddFineArt() {
     }
     function handleSubmit(e) {
         e.preventDefault();
-
+        console.log(url)
         const data = {
             title: title,
             physicalType: physicalType,

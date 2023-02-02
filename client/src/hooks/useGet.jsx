@@ -13,7 +13,7 @@ const GetAll = (dest) => {
     useEffect(() => {
         axios({
             method: "GET",
-            url: `${url}/${dest}/`
+            url: `${url}/${dest}`
         }).then((res) => {
             setError(null);
             if (res.data) {
