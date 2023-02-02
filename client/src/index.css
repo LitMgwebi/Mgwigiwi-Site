@@ -153,6 +153,66 @@ Project Header
 }
 
 
+/*
+Home
+*/
+#Home {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.intro{
+  height: 100%;
+  width: 50%;
+  padding: 1rem
+}
+.introContent{
+  background-color: var(--primaryColour);
+  height: 100%;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.portfolioLink{
+  width: 5rem;
+  height: 5rem;
+}
+.portfolioIcon {
+  width: 4rem;
+  height: 4rem;
+}
+.portfolioIcon:hover {
+  width: 4.45rem;
+  height: 4.45rem;
+}
+.links{
+  height: 100%;
+  width:50%;
+  overflow-y: auto;
+  padding: 0 1rem
+}
+.linkCard{
+  width: 85%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.linkCard a{
+  width: 90%;
+  height: 60%;
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+.linkCard a:hover{
+  height: 65%;
+  width: 95%;
+}
 
 .cardContainer {
   width: 70rem;
@@ -452,6 +512,17 @@ Swiper Slider
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  #Home{
+    flex-direction: column;
+  }
+  .intro{
+    height: 50%;
+    width:100%;
+  }
+  .links{
+    height: 50%;
+    width:100%;
+  }
   .conceptDescription {
     width: 100%;
     justify-content: center;

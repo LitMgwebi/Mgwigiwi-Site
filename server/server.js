@@ -8,6 +8,7 @@ require("dotenv").config();
 
 //#region Directory Imports
 const log = require("./config/logging");
+const corsOptions = require("./config/corsOptions");
 const fineArtController = require("./Controllers/fineArtController");
 const userController = require("./Controllers/userController");
 const backgroundController = require("./Controllers/backgroundController");
@@ -23,7 +24,7 @@ const host = process.env.HOST
 
 const server = express();
 server.use(express.json());
-server.use(cors());
+server.use(cors(corsOptions));
 server.use(express.static(__dirname + "/public"));
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
