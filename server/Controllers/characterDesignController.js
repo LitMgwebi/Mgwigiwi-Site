@@ -120,20 +120,7 @@ router.delete('/:id', requireAuth, async (req, res) => {
 
 //#region Helper Functions
 async function deleteTranslation(id){
-    // Translation.find({characterDesign: id}, async function(err, docs) {
-    //     if(err) {
-    //         log.error(err);
-    //     }else{
-    //         docs.map(async doc => {
-    //             for(let i = 0; i < doc.public_ids.length; i++){
-    //                 const publicId = doc.public_ids[i];
-    //                 await removeFromCloudinary(publicId);
-    //             }
-    //         });
-    //         await docs.remove();
-    //     }
-    // });
-
+    
     for await (const doc of Translation.find({ characterDesign: id })) {
         try{
             for(let i = 0; i < doc.public_ids.length; i++){

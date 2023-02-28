@@ -11,7 +11,7 @@ function BackgroundIndex() {
     const { user } = useAuthContext();
 
     return (
-        <div id="BackgroundIndex">
+        <div id="Index">
             <div className="section">
                 <DigitalHeader header="Background Art" link="/portfolio" />
                 {error && <div className="error">{error}</div>}

@@ -73,7 +73,8 @@ Header
 */
 #Header {
   position: relative;
-  background-color: var(--primaryColour);
+  /* background-color: var(--primaryColour); */
+  border-bottom: solid 0.5rem var(--primaryColour);
   min-height: 4rem;
   margin-bottom: 2rem;
   width: 100%;
